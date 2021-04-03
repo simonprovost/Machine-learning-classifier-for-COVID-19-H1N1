@@ -1,0 +1,911 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+<meta name="generator" content="pdoc 0.9.2" />
+<title>Machine-Learning-COVID19andFLUE.src.preprocessing API documentation</title>
+<meta name="description" content="" />
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
+<link rel="stylesheet preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/github.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:30px;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:1em 0 .50em 0}h3{font-size:1.4em;margin:25px 0 10px 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .3s ease-in-out}a:hover{color:#e82}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900}pre code{background:#f8f8f8;font-size:.8em;line-height:1.4em}code{background:#f2f2f1;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{background:#f8f8f8;border:0;border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0;padding:1ex}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-weight:bold;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em .5em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.item .name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul{padding-left:1.5em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js" integrity="sha256-Uv3H6lx7dJmRfRvH8TH6kJD1TSK1aFcwgx+mdg3epi8=" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => hljs.initHighlighting())</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>Machine-Learning-COVID19andFLUE.src.preprocessing</code></h1>
+</header>
+<section id="section-intro">
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">from collections import defaultdict
+import numpy as np
+import pandas as pd
+from sklearn import preprocessing
+import math
+
+
+class LabelEncoder:
+    &#34;&#34;&#34;
+    The LabelEncoder class instance below is a derived of the sklearn.preprocessing.LabelEncoder() class, forked for
+    a better application of the current context. Given the data its running a [label encoding method](https://www.geeksforgeeks.org/ml-label-encoding-of-datasets-in-python/)
+    for having all features in a numerical way for feeding any machine learning algorithms.
+
+    Init
+    ----------
+    Nothing is necessary to give during the instantiation of the class.
+
+    Returns
+    -------
+    An instance of the LabelEncoder() with all the public methods available below.
+
+    &#34;&#34;&#34;
+
+    def __init__(self):
+        self.columns = None
+        self.led = defaultdict(preprocessing.LabelEncoder)
+
+    def fit(self, X):
+        &#34;&#34;&#34;
+        The fit method is looping through the data to be sure that NaN value are changed in &#34;None&#34; value (string).
+
+        Parameters
+        ----------
+        X: Pandas.series()
+            X is the dataframe that you are looking for being fit with the method.
+
+        &#34;&#34;&#34;
+        self.columns = X.columns
+        for col in self.columns:
+            val = X[col].unique()
+            val = [x if x is not None else &#34;None&#34; for x in val]
+            self.led[col].fit(val)
+        return self
+
+    def fit_transform(self, X):
+        &#34;&#34;&#34;
+        The fit_transform method is a faster way of doing LabelEncoder().fit ; LabelEncoder().transform.
+
+        Parameters
+        ----------
+        X: Pandas.series()
+            X is the dataframe that you are looking for being fit with the method.
+
+        &#34;&#34;&#34;
+        if self.columns is None:
+            self.fit(X)
+        return self.transform(X)
+
+    def transform(self, X):
+        &#34;&#34;&#34;
+        The transform method is moving all X&#39;s data into a label encoded.
+
+        Parameters
+        ----------
+        X: Pandas.series()
+            X is the dataframe that you are looking for being fit with the method.
+
+        &#34;&#34;&#34;
+        return X.apply(lambda x: self.led[x.name].transform(x.apply(lambda e: e if e is not None else &#34;None&#34;)))
+
+
+class PreProcess:
+    &#34;&#34;&#34;
+    The PreProcess class instance below is about pre-processing. It is incorporating a few method from the loading of
+    the csv to the label encoding of the features available in the data.
+
+    Init
+    ----------
+    path: string
+        The path to the CSV that the class is going to load.
+    columnsToDrop: list&lt;string&gt;
+        A list of string which represent the colums to initially drop after having loaded the data.
+
+    Returns
+    -------
+    An instance of the PreProcess() with all the public methods available below.
+    An instance of PreProcess() is composed of:
+        - path = path from the filed saved.
+        - columnsToDrop = columns to Drop saved.
+        - input = the data without the classData.
+        - classData = the classData without the input.
+        - encodedData = data labelled with the LabelEncoder() Method.
+    &#34;&#34;&#34;
+
+    def __init__(self, path, columnsToDrop):
+        if not path:
+            raise TypeError(&#34;Path is needed!&#34;)
+        self.path = path
+        self.columsToDrop = columnsToDrop
+        self.dataset = []
+        self.input = []
+        self.classData = []
+        self.encodedData = []
+
+    def __normalizeAttribute(self, attr, validationAttr, posAttr):
+        &#34;&#34;&#34;
+        The __normalizeAttribute generic private method is used for modifying a value in the data according to the
+        approval of a condition.
+
+        Parameters
+        ----------
+        attr : string
+            The column too look at in the dataset stored in the class.
+        validationAttr : string || int
+            According to the dtype of the column `attr` in the dataset stored in the class, the validationAttr is the value
+            that will be the right side of the condition.
+                Example: self.dataset[&#39;Age&#39;][0] == validationAttr(=42)
+            means that if the value 0 of the colum &#39;Age&#39; is equal to 42 then ... It works same with string &#39;male&#39;/&#39;female&#39;.
+
+        posAttr : string || int
+            PosAttr is that attribute that the value x of the column `attr` that will be changed with if the condition is
+            return a True value.
+
+        Returns
+        -------
+        (void)
+        &#34;&#34;&#34;
+        self.dataset[attr] = np.where(
+            (self.dataset[attr] == validationAttr), posAttr, self.dataset[attr]
+        )
+
+    def loadDataset(self):
+        &#34;&#34;&#34;
+        The loadDataset public method is used for loading the dataset with the path saved during the instantiation
+        of the class. It also drop the column given during the instantiation.
+
+        Parameters
+        ----------
+        (void)
+
+        Returns
+        -------
+        (void))
+        &#34;&#34;&#34;
+        self.dataset = pd.read_csv(self.path)
+        self.dataset.drop(self.columsToDrop, axis=1, inplace=True)
+
+    def getColumnsWithoutClass(self):
+        &#34;&#34;&#34;
+        The getter getColumnsWithoutClass is a public method for getting the names of all columns available
+        in the dataset stored in the class without the class Data.
+
+
+        Parameters
+        ----------
+        (void)
+
+        Returns
+        -------
+        Return a list of string (list&lt;string&gt;).
+        &#34;&#34;&#34;
+        datas = self.dataset.drop([&#39;Diagnosis&#39;], axis=1, inplace=False)
+        return datas.columns
+
+    def labelEncodings(self):
+        &#34;&#34;&#34;
+        The labelEncodings public method is pre-processing the data in a way to:
+
+        - Running a LabelEncoder() in all non-numerical and class data.
+        - Making all numerical columns pure without missing values.
+        - Making the class data a numerical column.
+        - Apply and store the change.
+
+        Parameters
+        ----------
+        (void)
+
+        Returns
+        -------
+        (void)
+        &#34;&#34;&#34;
+
+        ### Label Encoding without class data and numerical columns
+        df = self.dataset.drop([&#39;Diagnosis&#39;, &#39;Age&#39;], axis=1, inplace=False)
+
+        ### Impurity of the numerical columns with the median of the column &#39;Age&#39; for its missing values
+        ages = self.dataset[&#34;Age&#34;].values
+        ages = [float(xx) for xx in ages]
+        medianAges = np.nanmedian(ages)
+        ages = [medianAges if math.isnan(x) else x for x in ages]
+
+        i = 0
+        while i &lt; len(ages):
+            if isinstance(ages[i], str):
+                i += 1
+                continue
+            if ages[i] &lt;= 18:
+                ages[i] = &#34;child&#34;
+            elif 18 &lt; ages[i] &lt;= 35:
+                ages[i] = &#34;youngAdult&#34;
+            elif 35 &lt; ages[i] &lt;= 55:
+                ages[i] = &#34;adult&#34;
+            else:
+                ages[i] = &#34;older&#34;
+            i += 1
+
+        df[&#39;Age&#39;] = ages
+
+        self.encodedData = LabelEncoder()
+        self.encodedData.fit(df)
+        transformed = self.encodedData.transform(df)
+
+        ### Class data label encoding to 1,0 for COVID=1 and H1N1=0
+        self.dataset[&#39;Diagnosis&#39;] = np.where(
+            (self.dataset[&#39;Diagnosis&#39;] == &#39;COVID19&#39;), 1, 0
+        )
+
+        y = self.dataset[&#39;Diagnosis&#39;]
+
+        ### Apply changes and stored them to self.input and self.classData
+        self.input = transformed.values
+        self.classData = y.values
+
+    def cleanDataAttributes(self):
+        &#34;&#34;&#34;
+        The cleanDataAttributes public method is pre-processing the data in a way to:
+
+        - Normalise every non-numerical data that have missing values knows as &#34;b&#39;?&#39;&#34; in the data to NaN value.
+        - Fill every None value to &#34;Nan&#34;.
+
+        This choice is for a better performance with the LabelEncoder().
+
+        Parameters
+        ----------
+        (void)
+
+        Returns
+        -------
+        (void)
+        &#34;&#34;&#34;
+        self.__normalizeAttribute(&#39;Sex&#39;, &#34;b&#39;?&#39;&#34;, &#34;NaN&#34;)
+        self.__normalizeAttribute(&#39;CTscanResults&#39;, &#34;b&#39;?&#39;&#34;, &#34;NaN&#34;)
+        self.__normalizeAttribute(&#39;XrayResults&#39;, &#34;b&#39;?&#39;&#34;, &#34;NaN&#34;)
+        self.__normalizeAttribute(&#39;Diarrhea&#39;, &#34;b&#39;?&#39;&#34;, &#34;NaN&#34;)
+        self.__normalizeAttribute(&#39;Fever&#39;, &#34;b&#39;?&#39;&#34;, &#34;NaN&#34;)
+        self.__normalizeAttribute(&#39;Coughing&#39;, &#34;b&#39;?&#39;&#34;, &#34;NaN&#34;)
+        self.__normalizeAttribute(&#39;SoreThroat&#39;, &#34;b&#39;?&#39;&#34;, &#34;NaN&#34;)
+        self.__normalizeAttribute(&#39;NauseaVomitting&#39;, &#34;b&#39;?&#39;&#34;, &#34;NaN&#34;)
+        self.__normalizeAttribute(&#39;Fatigue&#39;, &#34;b&#39;?&#39;&#34;, &#34;NaN&#34;)
+        self.__normalizeAttribute(&#39;RenalDisease&#39;, &#34;b&#39;?&#39;&#34;, &#34;NaN&#34;)
+        self.__normalizeAttribute(&#39;diabetes&#39;, &#34;b&#39;?&#39;&#34;, &#34;NaN&#34;)
+        self.dataset = self.dataset.fillna(&#34;NaN&#34;)</code></pre>
+</details>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-classes">Classes</h2>
+<dl>
+<dt id="Machine-Learning-COVID19andFLUE.src.preprocessing.LabelEncoder"><code class="flex name class">
+<span>class <span class="ident">LabelEncoder</span></span>
+</code></dt>
+<dd>
+<div class="desc"><p>The LabelEncoder class instance below is a derived of the sklearn.preprocessing.LabelEncoder() class, forked for
+a better application of the current context. Given the data its running a <a href="https://www.geeksforgeeks.org/ml-label-encoding-of-datasets-in-python/">label encoding method</a>
+for having all features in a numerical way for feeding any machine learning algorithms.</p>
+<h2 id="init">Init</h2>
+<p>Nothing is necessary to give during the instantiation of the class.</p>
+<h2 id="returns">Returns</h2>
+<p>An instance of the LabelEncoder() with all the public methods available below.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class LabelEncoder:
+    &#34;&#34;&#34;
+    The LabelEncoder class instance below is a derived of the sklearn.preprocessing.LabelEncoder() class, forked for
+    a better application of the current context. Given the data its running a [label encoding method](https://www.geeksforgeeks.org/ml-label-encoding-of-datasets-in-python/)
+    for having all features in a numerical way for feeding any machine learning algorithms.
+
+    Init
+    ----------
+    Nothing is necessary to give during the instantiation of the class.
+
+    Returns
+    -------
+    An instance of the LabelEncoder() with all the public methods available below.
+
+    &#34;&#34;&#34;
+
+    def __init__(self):
+        self.columns = None
+        self.led = defaultdict(preprocessing.LabelEncoder)
+
+    def fit(self, X):
+        &#34;&#34;&#34;
+        The fit method is looping through the data to be sure that NaN value are changed in &#34;None&#34; value (string).
+
+        Parameters
+        ----------
+        X: Pandas.series()
+            X is the dataframe that you are looking for being fit with the method.
+
+        &#34;&#34;&#34;
+        self.columns = X.columns
+        for col in self.columns:
+            val = X[col].unique()
+            val = [x if x is not None else &#34;None&#34; for x in val]
+            self.led[col].fit(val)
+        return self
+
+    def fit_transform(self, X):
+        &#34;&#34;&#34;
+        The fit_transform method is a faster way of doing LabelEncoder().fit ; LabelEncoder().transform.
+
+        Parameters
+        ----------
+        X: Pandas.series()
+            X is the dataframe that you are looking for being fit with the method.
+
+        &#34;&#34;&#34;
+        if self.columns is None:
+            self.fit(X)
+        return self.transform(X)
+
+    def transform(self, X):
+        &#34;&#34;&#34;
+        The transform method is moving all X&#39;s data into a label encoded.
+
+        Parameters
+        ----------
+        X: Pandas.series()
+            X is the dataframe that you are looking for being fit with the method.
+
+        &#34;&#34;&#34;
+        return X.apply(lambda x: self.led[x.name].transform(x.apply(lambda e: e if e is not None else &#34;None&#34;)))</code></pre>
+</details>
+<h3>Methods</h3>
+<dl>
+<dt id="Machine-Learning-COVID19andFLUE.src.preprocessing.LabelEncoder.fit"><code class="name flex">
+<span>def <span class="ident">fit</span></span>(<span>self, X)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>The fit method is looping through the data to be sure that NaN value are changed in "None" value (string).</p>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>X</code></strong> :&ensp;<code>Pandas.series()</code></dt>
+<dd>X is the dataframe that you are looking for being fit with the method.</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def fit(self, X):
+    &#34;&#34;&#34;
+    The fit method is looping through the data to be sure that NaN value are changed in &#34;None&#34; value (string).
+
+    Parameters
+    ----------
+    X: Pandas.series()
+        X is the dataframe that you are looking for being fit with the method.
+
+    &#34;&#34;&#34;
+    self.columns = X.columns
+    for col in self.columns:
+        val = X[col].unique()
+        val = [x if x is not None else &#34;None&#34; for x in val]
+        self.led[col].fit(val)
+    return self</code></pre>
+</details>
+</dd>
+<dt id="Machine-Learning-COVID19andFLUE.src.preprocessing.LabelEncoder.fit_transform"><code class="name flex">
+<span>def <span class="ident">fit_transform</span></span>(<span>self, X)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>The fit_transform method is a faster way of doing LabelEncoder().fit ; LabelEncoder().transform.</p>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>X</code></strong> :&ensp;<code>Pandas.series()</code></dt>
+<dd>X is the dataframe that you are looking for being fit with the method.</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def fit_transform(self, X):
+    &#34;&#34;&#34;
+    The fit_transform method is a faster way of doing LabelEncoder().fit ; LabelEncoder().transform.
+
+    Parameters
+    ----------
+    X: Pandas.series()
+        X is the dataframe that you are looking for being fit with the method.
+
+    &#34;&#34;&#34;
+    if self.columns is None:
+        self.fit(X)
+    return self.transform(X)</code></pre>
+</details>
+</dd>
+<dt id="Machine-Learning-COVID19andFLUE.src.preprocessing.LabelEncoder.transform"><code class="name flex">
+<span>def <span class="ident">transform</span></span>(<span>self, X)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>The transform method is moving all X's data into a label encoded.</p>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>X</code></strong> :&ensp;<code>Pandas.series()</code></dt>
+<dd>X is the dataframe that you are looking for being fit with the method.</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def transform(self, X):
+    &#34;&#34;&#34;
+    The transform method is moving all X&#39;s data into a label encoded.
+
+    Parameters
+    ----------
+    X: Pandas.series()
+        X is the dataframe that you are looking for being fit with the method.
+
+    &#34;&#34;&#34;
+    return X.apply(lambda x: self.led[x.name].transform(x.apply(lambda e: e if e is not None else &#34;None&#34;)))</code></pre>
+</details>
+</dd>
+</dl>
+</dd>
+<dt id="Machine-Learning-COVID19andFLUE.src.preprocessing.PreProcess"><code class="flex name class">
+<span>class <span class="ident">PreProcess</span></span>
+<span>(</span><span>path, columnsToDrop)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>The PreProcess class instance below is about pre-processing. It is incorporating a few method from the loading of
+the csv to the label encoding of the features available in the data.</p>
+<h2 id="init">Init</h2>
+<p>path: string
+The path to the CSV that the class is going to load.
+columnsToDrop: list<string>
+A list of string which represent the colums to initially drop after having loaded the data.</p>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt>An instance of the PreProcess() with all the public methods available below.</dt>
+<dt><code>An instance</code> of <code>PreProcess() is composed of:</code></dt>
+<dd>
+<ul>
+<li>path = path from the filed saved.</li>
+<li>columnsToDrop = columns to Drop saved.</li>
+<li>input = the data without the classData.</li>
+<li>classData = the classData without the input.</li>
+<li>encodedData = data labelled with the LabelEncoder() Method.</li>
+</ul>
+</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class PreProcess:
+    &#34;&#34;&#34;
+    The PreProcess class instance below is about pre-processing. It is incorporating a few method from the loading of
+    the csv to the label encoding of the features available in the data.
+
+    Init
+    ----------
+    path: string
+        The path to the CSV that the class is going to load.
+    columnsToDrop: list&lt;string&gt;
+        A list of string which represent the colums to initially drop after having loaded the data.
+
+    Returns
+    -------
+    An instance of the PreProcess() with all the public methods available below.
+    An instance of PreProcess() is composed of:
+        - path = path from the filed saved.
+        - columnsToDrop = columns to Drop saved.
+        - input = the data without the classData.
+        - classData = the classData without the input.
+        - encodedData = data labelled with the LabelEncoder() Method.
+    &#34;&#34;&#34;
+
+    def __init__(self, path, columnsToDrop):
+        if not path:
+            raise TypeError(&#34;Path is needed!&#34;)
+        self.path = path
+        self.columsToDrop = columnsToDrop
+        self.dataset = []
+        self.input = []
+        self.classData = []
+        self.encodedData = []
+
+    def __normalizeAttribute(self, attr, validationAttr, posAttr):
+        &#34;&#34;&#34;
+        The __normalizeAttribute generic private method is used for modifying a value in the data according to the
+        approval of a condition.
+
+        Parameters
+        ----------
+        attr : string
+            The column too look at in the dataset stored in the class.
+        validationAttr : string || int
+            According to the dtype of the column `attr` in the dataset stored in the class, the validationAttr is the value
+            that will be the right side of the condition.
+                Example: self.dataset[&#39;Age&#39;][0] == validationAttr(=42)
+            means that if the value 0 of the colum &#39;Age&#39; is equal to 42 then ... It works same with string &#39;male&#39;/&#39;female&#39;.
+
+        posAttr : string || int
+            PosAttr is that attribute that the value x of the column `attr` that will be changed with if the condition is
+            return a True value.
+
+        Returns
+        -------
+        (void)
+        &#34;&#34;&#34;
+        self.dataset[attr] = np.where(
+            (self.dataset[attr] == validationAttr), posAttr, self.dataset[attr]
+        )
+
+    def loadDataset(self):
+        &#34;&#34;&#34;
+        The loadDataset public method is used for loading the dataset with the path saved during the instantiation
+        of the class. It also drop the column given during the instantiation.
+
+        Parameters
+        ----------
+        (void)
+
+        Returns
+        -------
+        (void))
+        &#34;&#34;&#34;
+        self.dataset = pd.read_csv(self.path)
+        self.dataset.drop(self.columsToDrop, axis=1, inplace=True)
+
+    def getColumnsWithoutClass(self):
+        &#34;&#34;&#34;
+        The getter getColumnsWithoutClass is a public method for getting the names of all columns available
+        in the dataset stored in the class without the class Data.
+
+
+        Parameters
+        ----------
+        (void)
+
+        Returns
+        -------
+        Return a list of string (list&lt;string&gt;).
+        &#34;&#34;&#34;
+        datas = self.dataset.drop([&#39;Diagnosis&#39;], axis=1, inplace=False)
+        return datas.columns
+
+    def labelEncodings(self):
+        &#34;&#34;&#34;
+        The labelEncodings public method is pre-processing the data in a way to:
+
+        - Running a LabelEncoder() in all non-numerical and class data.
+        - Making all numerical columns pure without missing values.
+        - Making the class data a numerical column.
+        - Apply and store the change.
+
+        Parameters
+        ----------
+        (void)
+
+        Returns
+        -------
+        (void)
+        &#34;&#34;&#34;
+
+        ### Label Encoding without class data and numerical columns
+        df = self.dataset.drop([&#39;Diagnosis&#39;, &#39;Age&#39;], axis=1, inplace=False)
+
+        ### Impurity of the numerical columns with the median of the column &#39;Age&#39; for its missing values
+        ages = self.dataset[&#34;Age&#34;].values
+        ages = [float(xx) for xx in ages]
+        medianAges = np.nanmedian(ages)
+        ages = [medianAges if math.isnan(x) else x for x in ages]
+
+        i = 0
+        while i &lt; len(ages):
+            if isinstance(ages[i], str):
+                i += 1
+                continue
+            if ages[i] &lt;= 18:
+                ages[i] = &#34;child&#34;
+            elif 18 &lt; ages[i] &lt;= 35:
+                ages[i] = &#34;youngAdult&#34;
+            elif 35 &lt; ages[i] &lt;= 55:
+                ages[i] = &#34;adult&#34;
+            else:
+                ages[i] = &#34;older&#34;
+            i += 1
+
+        df[&#39;Age&#39;] = ages
+
+        self.encodedData = LabelEncoder()
+        self.encodedData.fit(df)
+        transformed = self.encodedData.transform(df)
+
+        ### Class data label encoding to 1,0 for COVID=1 and H1N1=0
+        self.dataset[&#39;Diagnosis&#39;] = np.where(
+            (self.dataset[&#39;Diagnosis&#39;] == &#39;COVID19&#39;), 1, 0
+        )
+
+        y = self.dataset[&#39;Diagnosis&#39;]
+
+        ### Apply changes and stored them to self.input and self.classData
+        self.input = transformed.values
+        self.classData = y.values
+
+    def cleanDataAttributes(self):
+        &#34;&#34;&#34;
+        The cleanDataAttributes public method is pre-processing the data in a way to:
+
+        - Normalise every non-numerical data that have missing values knows as &#34;b&#39;?&#39;&#34; in the data to NaN value.
+        - Fill every None value to &#34;Nan&#34;.
+
+        This choice is for a better performance with the LabelEncoder().
+
+        Parameters
+        ----------
+        (void)
+
+        Returns
+        -------
+        (void)
+        &#34;&#34;&#34;
+        self.__normalizeAttribute(&#39;Sex&#39;, &#34;b&#39;?&#39;&#34;, &#34;NaN&#34;)
+        self.__normalizeAttribute(&#39;CTscanResults&#39;, &#34;b&#39;?&#39;&#34;, &#34;NaN&#34;)
+        self.__normalizeAttribute(&#39;XrayResults&#39;, &#34;b&#39;?&#39;&#34;, &#34;NaN&#34;)
+        self.__normalizeAttribute(&#39;Diarrhea&#39;, &#34;b&#39;?&#39;&#34;, &#34;NaN&#34;)
+        self.__normalizeAttribute(&#39;Fever&#39;, &#34;b&#39;?&#39;&#34;, &#34;NaN&#34;)
+        self.__normalizeAttribute(&#39;Coughing&#39;, &#34;b&#39;?&#39;&#34;, &#34;NaN&#34;)
+        self.__normalizeAttribute(&#39;SoreThroat&#39;, &#34;b&#39;?&#39;&#34;, &#34;NaN&#34;)
+        self.__normalizeAttribute(&#39;NauseaVomitting&#39;, &#34;b&#39;?&#39;&#34;, &#34;NaN&#34;)
+        self.__normalizeAttribute(&#39;Fatigue&#39;, &#34;b&#39;?&#39;&#34;, &#34;NaN&#34;)
+        self.__normalizeAttribute(&#39;RenalDisease&#39;, &#34;b&#39;?&#39;&#34;, &#34;NaN&#34;)
+        self.__normalizeAttribute(&#39;diabetes&#39;, &#34;b&#39;?&#39;&#34;, &#34;NaN&#34;)
+        self.dataset = self.dataset.fillna(&#34;NaN&#34;)</code></pre>
+</details>
+<h3>Methods</h3>
+<dl>
+<dt id="Machine-Learning-COVID19andFLUE.src.preprocessing.PreProcess.cleanDataAttributes"><code class="name flex">
+<span>def <span class="ident">cleanDataAttributes</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>The cleanDataAttributes public method is pre-processing the data in a way to:</p>
+<ul>
+<li>Normalise every non-numerical data that have missing values knows as "b'?'" in the data to NaN value.</li>
+<li>Fill every None value to "Nan".</li>
+</ul>
+<p>This choice is for a better performance with the LabelEncoder().</p>
+<h2 id="parameters">Parameters</h2>
+<p>(void)</p>
+<h2 id="returns">Returns</h2>
+<p>(void)</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def cleanDataAttributes(self):
+    &#34;&#34;&#34;
+    The cleanDataAttributes public method is pre-processing the data in a way to:
+
+    - Normalise every non-numerical data that have missing values knows as &#34;b&#39;?&#39;&#34; in the data to NaN value.
+    - Fill every None value to &#34;Nan&#34;.
+
+    This choice is for a better performance with the LabelEncoder().
+
+    Parameters
+    ----------
+    (void)
+
+    Returns
+    -------
+    (void)
+    &#34;&#34;&#34;
+    self.__normalizeAttribute(&#39;Sex&#39;, &#34;b&#39;?&#39;&#34;, &#34;NaN&#34;)
+    self.__normalizeAttribute(&#39;CTscanResults&#39;, &#34;b&#39;?&#39;&#34;, &#34;NaN&#34;)
+    self.__normalizeAttribute(&#39;XrayResults&#39;, &#34;b&#39;?&#39;&#34;, &#34;NaN&#34;)
+    self.__normalizeAttribute(&#39;Diarrhea&#39;, &#34;b&#39;?&#39;&#34;, &#34;NaN&#34;)
+    self.__normalizeAttribute(&#39;Fever&#39;, &#34;b&#39;?&#39;&#34;, &#34;NaN&#34;)
+    self.__normalizeAttribute(&#39;Coughing&#39;, &#34;b&#39;?&#39;&#34;, &#34;NaN&#34;)
+    self.__normalizeAttribute(&#39;SoreThroat&#39;, &#34;b&#39;?&#39;&#34;, &#34;NaN&#34;)
+    self.__normalizeAttribute(&#39;NauseaVomitting&#39;, &#34;b&#39;?&#39;&#34;, &#34;NaN&#34;)
+    self.__normalizeAttribute(&#39;Fatigue&#39;, &#34;b&#39;?&#39;&#34;, &#34;NaN&#34;)
+    self.__normalizeAttribute(&#39;RenalDisease&#39;, &#34;b&#39;?&#39;&#34;, &#34;NaN&#34;)
+    self.__normalizeAttribute(&#39;diabetes&#39;, &#34;b&#39;?&#39;&#34;, &#34;NaN&#34;)
+    self.dataset = self.dataset.fillna(&#34;NaN&#34;)</code></pre>
+</details>
+</dd>
+<dt id="Machine-Learning-COVID19andFLUE.src.preprocessing.PreProcess.getColumnsWithoutClass"><code class="name flex">
+<span>def <span class="ident">getColumnsWithoutClass</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>The getter getColumnsWithoutClass is a public method for getting the names of all columns available
+in the dataset stored in the class without the class Data.</p>
+<h2 id="parameters">Parameters</h2>
+<p>(void)</p>
+<h2 id="returns">Returns</h2>
+<p>Return a list of string (list<string>).</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def getColumnsWithoutClass(self):
+    &#34;&#34;&#34;
+    The getter getColumnsWithoutClass is a public method for getting the names of all columns available
+    in the dataset stored in the class without the class Data.
+
+
+    Parameters
+    ----------
+    (void)
+
+    Returns
+    -------
+    Return a list of string (list&lt;string&gt;).
+    &#34;&#34;&#34;
+    datas = self.dataset.drop([&#39;Diagnosis&#39;], axis=1, inplace=False)
+    return datas.columns</code></pre>
+</details>
+</dd>
+<dt id="Machine-Learning-COVID19andFLUE.src.preprocessing.PreProcess.labelEncodings"><code class="name flex">
+<span>def <span class="ident">labelEncodings</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>The labelEncodings public method is pre-processing the data in a way to:</p>
+<ul>
+<li>Running a LabelEncoder() in all non-numerical and class data.</li>
+<li>Making all numerical columns pure without missing values.</li>
+<li>Making the class data a numerical column.</li>
+<li>Apply and store the change.</li>
+</ul>
+<h2 id="parameters">Parameters</h2>
+<p>(void)</p>
+<h2 id="returns">Returns</h2>
+<p>(void)</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def labelEncodings(self):
+    &#34;&#34;&#34;
+    The labelEncodings public method is pre-processing the data in a way to:
+
+    - Running a LabelEncoder() in all non-numerical and class data.
+    - Making all numerical columns pure without missing values.
+    - Making the class data a numerical column.
+    - Apply and store the change.
+
+    Parameters
+    ----------
+    (void)
+
+    Returns
+    -------
+    (void)
+    &#34;&#34;&#34;
+
+    ### Label Encoding without class data and numerical columns
+    df = self.dataset.drop([&#39;Diagnosis&#39;, &#39;Age&#39;], axis=1, inplace=False)
+
+    ### Impurity of the numerical columns with the median of the column &#39;Age&#39; for its missing values
+    ages = self.dataset[&#34;Age&#34;].values
+    ages = [float(xx) for xx in ages]
+    medianAges = np.nanmedian(ages)
+    ages = [medianAges if math.isnan(x) else x for x in ages]
+
+    i = 0
+    while i &lt; len(ages):
+        if isinstance(ages[i], str):
+            i += 1
+            continue
+        if ages[i] &lt;= 18:
+            ages[i] = &#34;child&#34;
+        elif 18 &lt; ages[i] &lt;= 35:
+            ages[i] = &#34;youngAdult&#34;
+        elif 35 &lt; ages[i] &lt;= 55:
+            ages[i] = &#34;adult&#34;
+        else:
+            ages[i] = &#34;older&#34;
+        i += 1
+
+    df[&#39;Age&#39;] = ages
+
+    self.encodedData = LabelEncoder()
+    self.encodedData.fit(df)
+    transformed = self.encodedData.transform(df)
+
+    ### Class data label encoding to 1,0 for COVID=1 and H1N1=0
+    self.dataset[&#39;Diagnosis&#39;] = np.where(
+        (self.dataset[&#39;Diagnosis&#39;] == &#39;COVID19&#39;), 1, 0
+    )
+
+    y = self.dataset[&#39;Diagnosis&#39;]
+
+    ### Apply changes and stored them to self.input and self.classData
+    self.input = transformed.values
+    self.classData = y.values</code></pre>
+</details>
+</dd>
+<dt id="Machine-Learning-COVID19andFLUE.src.preprocessing.PreProcess.loadDataset"><code class="name flex">
+<span>def <span class="ident">loadDataset</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>The loadDataset public method is used for loading the dataset with the path saved during the instantiation
+of the class. It also drop the column given during the instantiation.</p>
+<h2 id="parameters">Parameters</h2>
+<p>(void)</p>
+<h2 id="returns">Returns</h2>
+<p>(void))</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def loadDataset(self):
+    &#34;&#34;&#34;
+    The loadDataset public method is used for loading the dataset with the path saved during the instantiation
+    of the class. It also drop the column given during the instantiation.
+
+    Parameters
+    ----------
+    (void)
+
+    Returns
+    -------
+    (void))
+    &#34;&#34;&#34;
+    self.dataset = pd.read_csv(self.path)
+    self.dataset.drop(self.columsToDrop, axis=1, inplace=True)</code></pre>
+</details>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+</article>
+<nav id="sidebar">
+<h1>Index</h1>
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="Machine-Learning-COVID19andFLUE.src" href="index.html">Machine-Learning-COVID19andFLUE.src</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-classes">Classes</a></h3>
+<ul>
+<li>
+<h4><code><a title="Machine-Learning-COVID19andFLUE.src.preprocessing.LabelEncoder" href="#Machine-Learning-COVID19andFLUE.src.preprocessing.LabelEncoder">LabelEncoder</a></code></h4>
+<ul class="">
+<li><code><a title="Machine-Learning-COVID19andFLUE.src.preprocessing.LabelEncoder.fit" href="#Machine-Learning-COVID19andFLUE.src.preprocessing.LabelEncoder.fit">fit</a></code></li>
+<li><code><a title="Machine-Learning-COVID19andFLUE.src.preprocessing.LabelEncoder.fit_transform" href="#Machine-Learning-COVID19andFLUE.src.preprocessing.LabelEncoder.fit_transform">fit_transform</a></code></li>
+<li><code><a title="Machine-Learning-COVID19andFLUE.src.preprocessing.LabelEncoder.transform" href="#Machine-Learning-COVID19andFLUE.src.preprocessing.LabelEncoder.transform">transform</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="Machine-Learning-COVID19andFLUE.src.preprocessing.PreProcess" href="#Machine-Learning-COVID19andFLUE.src.preprocessing.PreProcess">PreProcess</a></code></h4>
+<ul class="">
+<li><code><a title="Machine-Learning-COVID19andFLUE.src.preprocessing.PreProcess.cleanDataAttributes" href="#Machine-Learning-COVID19andFLUE.src.preprocessing.PreProcess.cleanDataAttributes">cleanDataAttributes</a></code></li>
+<li><code><a title="Machine-Learning-COVID19andFLUE.src.preprocessing.PreProcess.getColumnsWithoutClass" href="#Machine-Learning-COVID19andFLUE.src.preprocessing.PreProcess.getColumnsWithoutClass">getColumnsWithoutClass</a></code></li>
+<li><code><a title="Machine-Learning-COVID19andFLUE.src.preprocessing.PreProcess.labelEncodings" href="#Machine-Learning-COVID19andFLUE.src.preprocessing.PreProcess.labelEncodings">labelEncodings</a></code></li>
+<li><code><a title="Machine-Learning-COVID19andFLUE.src.preprocessing.PreProcess.loadDataset" href="#Machine-Learning-COVID19andFLUE.src.preprocessing.PreProcess.loadDataset">loadDataset</a></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc"><cite>pdoc</cite> 0.9.2</a>.</p>
+</footer>
+</body>
+</html>

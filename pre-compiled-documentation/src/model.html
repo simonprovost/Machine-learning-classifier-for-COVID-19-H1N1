@@ -1,0 +1,2538 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+<meta name="generator" content="pdoc 0.9.2" />
+<title>Machine-Learning-COVID19andFLUE.src.model API documentation</title>
+<meta name="description" content="" />
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
+<link rel="stylesheet preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/github.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:30px;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:1em 0 .50em 0}h3{font-size:1.4em;margin:25px 0 10px 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .3s ease-in-out}a:hover{color:#e82}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900}pre code{background:#f8f8f8;font-size:.8em;line-height:1.4em}code{background:#f2f2f1;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{background:#f8f8f8;border:0;border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0;padding:1ex}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-weight:bold;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em .5em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.item .name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul{padding-left:1.5em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js" integrity="sha256-Uv3H6lx7dJmRfRvH8TH6kJD1TSK1aFcwgx+mdg3epi8=" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => hljs.initHighlighting())</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>Machine-Learning-COVID19andFLUE.src.model</code></h1>
+</header>
+<section id="section-intro">
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">import numpy as np
+from sklearn.model_selection import train_test_split, ShuffleSplit
+from sklearn import metrics
+from sklearn.metrics import classification_report, confusion_matrix
+import matplotlib.pyplot as plt
+import seaborn as sns;
+from sklearn.tree import export_graphviz
+from io import StringIO
+from IPython.display import Image
+import pydotplus
+from mlxtend.evaluate import bias_variance_decomp
+from sklearn.model_selection import GridSearchCV
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.preprocessing import StandardScaler
+from sklearn.model_selection import learning_curve
+from sklearn import model_selection
+from sklearn.neighbors import KNeighborsClassifier
+from sklearn.naive_bayes import GaussianNB
+from sklearn.tree import _tree
+from sklearn.tree import DecisionTreeClassifier, plot_tree
+from sklearn.tree import export_text
+
+sns.set_theme()
+
+
+class SupervisedModel:
+    &#34;&#34;&#34;
+    The SupervisedModel class instance is about gathering a number of algorithms as well as benchmarking methods
+    for helping with the classification of an input and target given during the instantiation of the class.
+
+    - Classification Algorithms: Decision-Tree / Decision Tree with hyperparameters tunning / K-NN (with optimized way) / Naive-Bayes / Random Forest.
+    - Benchmarking: Between all algorithms ; Between Simple and Optimized Decision tree ;
+    The variance decomposition difference between a Simple Decision tree and an Optimized Decision tree.
+
+    Init
+    ----------
+    inputData : numpy.ndArray()
+        input values that will be used for splitting the data as well as computing a classifier or generate metrics scores.
+    target : numpy.ndArray()
+        target values that will be used for splitting the data as well as teaching a classifier or generate metrics scores.
+
+    Returns
+    -------
+    An instance of the SupervisedModel() with all the public methods available below.
+    An instance of SupervisedModel() is composed of:
+        - __input = private attribute = input value stored during the instantiation of the class.
+        - __target = private attribute = input value stored during the instantiation of the class.
+        - model = Any of the algorithms implemented in the following class stored the classifier into this attribute.
+        - X_train = Training input acquired via the splitting method.
+        - X_test = Testing input acquired via the splitting method.
+        - y_train = Training teacher acquired via the splitting method.
+        - y_test = Testing teacher acquired via the splitting method.
+        - y_pred = Value of prediction from a classifier.
+        - mse = Mean squared error of a particular classifier acquired via the bias-variance-decom method.
+        - bias = Bias of a particular classifier acquired via the bias-variance-decom method.
+        - var = Variance of a particular classifier acquired via the bias-variance-decom method.
+        - accuracy = Accuracy of a classifier ran.
+    &#34;&#34;&#34;
+
+    def __init__(self, inputData, target):
+        self.__input = inputData
+        self.__target = target
+        self.model = None
+        self.X_train = np.array([])
+        self.X_test = np.array([])
+        self.y_train = np.array([])
+        self.y_test = np.array([])
+        self.y_pred = np.array([])
+        self.mse = None
+        self.bias = None
+        self.var = None
+        self.accuracy = None
+
+    ##### UTILS
+
+    def splitData(self, testSize):  # testsize=0.3 --&gt; 70% training and 30% test
+        &#34;&#34;&#34;
+        The splitData public method give the possibility to split the data and stored the output into the class.
+        [train_test_split from scikit learn is used](https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.train_test_split.html)
+
+        Parameters
+        ----------
+        testSize : int
+            Example: testsize=0.3 --&gt; 70% training and 30% test.
+
+        Returns
+        -------
+        (void)
+        &#34;&#34;&#34;
+        self.X_train, self.X_test, self.y_train, self.y_test = train_test_split(
+            self.__input,
+            self.__target,
+            test_size=testSize,
+            random_state=0
+        )
+
+    def displayClassificationReport(self):
+        &#34;&#34;&#34;
+        The displayClassificationReport public method print the classification report of a particular classifier ran.
+        [classification_report from scikit learn is used](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.classification_report.html)
+
+        Parameters
+        ----------
+        (void)
+
+        Returns
+        -------
+        (void)
+        &#34;&#34;&#34;
+        if self.y_pred.size == 0:
+            raise TypeError(&#34;run a classifier before showing the report!&#34;)
+        print(classification_report(self.y_test, self.y_pred, target_names=[&#39;H1N1&#39;, &#39;COVID&#39;]))
+        print(&#34;Accuracy: %.3f&#34; % self.accuracy)
+
+    def displayConfusionMatrix(self, cliOrPlot=&#34;both&#34;):
+        &#34;&#34;&#34;
+        The displayConfusionMatrix public method plot the confusion matrix of a particular classifier ran.
+        [confusion_matrix from scikit learn is used](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.confusion_matrix.html)
+
+        Parameters
+        ----------
+        cliOrPlot: string&lt;&#34;both&#34;,&#34;cli&#34;&gt; DEFAULT:&#34;both&#34;
+            The parameter allow a little bit of verbose, CLI will only display the confusion matrix in the
+            command line interpreter. However, both will also plot the confusion matrix with the aid of matplotlib.
+
+        Returns
+        -------
+        (void)
+        &#34;&#34;&#34;
+        mat = confusion_matrix(self.y_test, self.y_pred)
+
+        if cliOrPlot in [&#34;both&#34;, &#34;cli&#34;]:
+            print(mat)
+
+        if cliOrPlot in [&#34;both&#34;, &#34;plot&#34;]:
+            names = [&#39;H1N1&#39;, &#39;COVID&#39;]
+
+            sns.heatmap(mat, square=True, annot=True, fmt=&#39;d&#39;, cbar=False,
+                        xticklabels=names, yticklabels=names)
+            plt.xlabel(&#39;Truth&#39;)
+            plt.ylabel(&#39;Predicted&#39;)
+            plt.show()
+
+    def biasVarianceTradeOff(self, lossFunction=&#34;mse&#34;, numRounds=200, display=True):
+        &#34;&#34;&#34;
+        The biasVarianceTradeOff public method print the bias variance trade off (i.e.: The mean square error, the Bias, the variance) of a particular classifier ran.
+        [bias_variance_decomp from mlxtend is used](http://rasbt.github.io/mlxtend/user_guide/evaluate/bias_variance_decomp/)
+
+        Parameters
+        ----------
+        lossFunction: string&lt;&#34;mse&#34;, &#34;0-1_loss&#34;&gt;
+            Allow to use one of the above loss function for the bias_variance_decomp API method.
+        numRounds: int range(1, inf) DEFAULT=200
+            Allow to give the number of bootstrapping that the API should do on the data for evaluating the model.
+        display: Boolean DEFAULT=True
+            Display or not the values, in the case of False, it will just stored the result into the class to use it
+            later.
+
+        Returns
+        -------
+        (void)
+        &#34;&#34;&#34;
+        self.mse, self.bias, self.var = bias_variance_decomp(
+            self.model,
+            self.X_train,
+            self.y_train,
+            self.X_test,
+            self.y_test,
+            loss=lossFunction,
+            num_rounds=numRounds,
+            random_seed=123)
+
+        # summarize results
+        if display:
+            print(&#39;mse Loss: %.3f&#39; % self.mse)
+            print(&#39;Bias: %.3f&#39; % self.bias)
+            print(&#39;Variance: %.3f&#39; % self.var)
+            print(&#34;Accuracy: %.3f&#34; % self.accuracy)
+
+    def plotValidationModelCurves(self, estimator, title, X, y, axes=None, ylim=None, cv=None,
+                                  n_jobs=None, train_sizes=np.linspace(.1, 1.0, 5)):
+        &#34;&#34;&#34;
+        The plotValidationModelCurves public method plot the validation of a model according to it&#39;s bias variance
+        trade off curve (overfit, underfit, goodfit), as well as the scalability and performance of the model acording
+        to the time it took for making it.
+        [Inspired from the doc/tutorials available in scikitlearn](https://scikit-learn.org/stable/auto_examples/index.html)
+
+        Parameters
+        ----------
+        estimator: scikitLearn classifier
+            The estimator is the classifier that will be test and plotted.
+        title: string
+            The title of the plot figure for a better genericity.
+        X: numpy.ndArray
+            Input stored in the class.
+        y: numpy.ndArray
+            Target class stored in the class.
+        axes: array[]
+            Axes of where to plot the result (used for subplot).
+        cv: caller || int
+            Number of cross-validation or a caller that will split the data with a method.
+
+        Returns
+        -------
+        (void)
+        &#34;&#34;&#34;
+        if axes is None:
+            _, axes = plt.subplots(1, 3, figsize=(20, 5))
+
+        axes[0].set_title(title)
+        if ylim is not None:
+            axes[0].set_ylim(*ylim)
+        axes[0].set_xlabel(&#34;Training samples&#34;)
+        axes[0].set_ylabel(&#34;Score&#34;)
+
+        train_sizes, train_scores, test_scores, fit_times, _ = \
+            learning_curve(estimator, X, y, cv=cv, n_jobs=n_jobs,
+                           train_sizes=train_sizes,
+                           return_times=True)
+        train_scores_mean = np.mean(train_scores, axis=1)
+        train_scores_std = np.std(train_scores, axis=1)
+        test_scores_mean = np.mean(test_scores, axis=1)
+        test_scores_std = np.std(test_scores, axis=1)
+        fit_times_mean = np.mean(fit_times, axis=1)
+        fit_times_std = np.std(fit_times, axis=1)
+
+        axes[0].grid()
+        axes[0].fill_between(train_sizes, train_scores_mean - train_scores_std,
+                             train_scores_mean + train_scores_std, alpha=0.1,
+                             color=&#34;r&#34;)
+        axes[0].fill_between(train_sizes, test_scores_mean - test_scores_std,
+                             test_scores_mean + test_scores_std, alpha=0.1,
+                             color=&#34;g&#34;)
+        axes[0].plot(train_sizes, train_scores_mean, &#39;o-&#39;, color=&#34;r&#34;,
+                     label=&#34;Training score&#34;)
+        axes[0].plot(train_sizes, test_scores_mean, &#39;o-&#39;, color=&#34;g&#34;,
+                     label=&#34;Cross-validation score&#34;)
+        axes[0].legend(loc=&#34;best&#34;)
+
+        axes[1].grid()
+        axes[1].plot(train_sizes, fit_times_mean, &#39;o-&#39;)
+        axes[1].fill_between(train_sizes, fit_times_mean - fit_times_std,
+                             fit_times_mean + fit_times_std, alpha=0.1)
+        axes[1].set_xlabel(&#34;Training examples&#34;)
+        axes[1].set_ylabel(&#34;fit_times&#34;)
+        axes[1].set_title(&#34;Scalability of the model&#34;)
+
+        axes[2].grid()
+        axes[2].plot(fit_times_mean, test_scores_mean, &#39;o-&#39;)
+        axes[2].fill_between(fit_times_mean, test_scores_mean - test_scores_std,
+                             test_scores_mean + test_scores_std, alpha=0.1)
+        axes[2].set_xlabel(&#34;fit_times&#34;)
+        axes[2].set_ylabel(&#34;Score&#34;)
+        axes[2].set_title(&#34;Performance of the model&#34;)
+
+        return plt
+
+    def decisionTreeToPic(self, featureColumns=np.array([])):
+        &#34;&#34;&#34;
+        The decisionTreeToPic public method save as image the decision tree model stored in the class.
+        WARNING: Do not work with other classifier.
+        [export_graphviz from scikitlearn is used](https://scikit-learn.org/stable/modules/generated/sklearn.tree.export_graphviz.html)
+
+        Parameters
+        ----------
+        featureColumns: numpy.ndArrray&lt;string&gt;
+           A list of string that contains the column names of the input data stored in the class.
+
+        Returns
+        -------
+        (void)
+        &#34;&#34;&#34;
+        if featureColumns.size == 0:
+            raise TypeError(&#34;Feature Columns are needed&#34;)
+
+        dot_data = StringIO()
+        export_graphviz(self.model, out_file=dot_data,
+                        filled=True, rounded=True,
+                        special_characters=True, feature_names=featureColumns, class_names=[&#39;H1N1&#39;, &#39;COVID&#39;])
+        graph = pydotplus.graph_from_dot_data(dot_data.getvalue())
+        graph.write_png(&#39;output/tree.png&#39;)
+        Image(graph.create_png())
+
+    def showValidationCurveMaxDepth(self, classifierBench, param_dist):
+        &#34;&#34;&#34;
+        The showValidationCurveMaxDepth public method plot the impact of the hyperparameter max_depth during the training
+        for a decision tree classifier with gridSearchCV (cross validation) results.
+
+        Parameters
+        ----------
+        classifierBench : GridSearchCV()
+            CrossValidated &#34;gridSearch&#34; from scikitLearn results.
+        param_dist : Object
+            Hyperparameters used for the GridSearchCV.
+
+        Returns
+        -------
+        (void)
+        &#34;&#34;&#34;
+        train_scores_mean = classifierBench.cv_results_[&#39;mean_train_score&#39;]
+        train_scores_std = classifierBench.cv_results_[&#39;std_train_score&#39;]
+        test_scores_mean = classifierBench.cv_results_[&#39;mean_test_score&#39;]
+        test_scores_std = classifierBench.cv_results_[&#39;std_test_score&#39;]
+
+        datas = param_dist[&#39;max_depth&#39;]
+
+        plt.figure()
+        plt.title(&#39;Model&#39;)
+        plt.xlabel(&#39;max_depth&#39;)
+        plt.ylabel(&#39;Score&#39;)
+
+        plt.semilogx(datas, train_scores_mean, label=&#39;Mean Train score&#39;,
+                     color=&#39;navy&#39;)
+        plt.gca().fill_between(datas,
+                               train_scores_mean - train_scores_std,
+                               train_scores_mean + train_scores_std,
+                               alpha=0.2,
+                               color=&#39;navy&#39;)
+        plt.semilogx(datas, test_scores_mean,
+                     label=&#39;Mean Test score&#39;, color=&#39;darkorange&#39;)
+
+        plt.gca().fill_between(datas,
+                               test_scores_mean - test_scores_std,
+                               test_scores_mean + test_scores_std,
+                               alpha=0.2,
+                               color=&#39;darkorange&#39;)
+
+        plt.legend(loc=&#39;best&#39;)
+        plt.show()
+
+    ##### ALGORITHMS
+
+    def decisionTree(self, crit, depth):
+        &#34;&#34;&#34;
+        The decisionTree public method is the wrapper of a Decision tree Classifier implemented by SciKitLearn.
+        The method instantiate the tree; fit and predict the tree; and store the accuracy score in the class.
+
+        Parameters
+        ----------
+        crit : string&lt;&#34;entropy&#34;,&#34;gini&#34;&gt;
+            criterion used for validated a node of the tree (impurity, etc.).
+        depth : int
+            How deep could go the model.
+
+        Returns
+        -------
+        (void)
+        &#34;&#34;&#34;
+        if self.X_train.size == 0 or self.y_train.size == 0:
+            raise TypeError(&#34;split Data before running a classifier!&#34;)
+        self.model = DecisionTreeClassifier(criterion=crit, max_depth=depth, random_state=0)
+        self.model = self.model.fit(self.X_train, self.y_train)
+        self.y_pred = self.model.predict(self.X_test)
+        self.accuracy = metrics.accuracy_score(self.y_test, self.y_pred)
+
+    def decisionTreeOptimizedDepth(self, plotVisualisation=False):
+        &#34;&#34;&#34;
+        The decisionTreeOptimizedDepth public method is the wrapper of a Decision tree Classifier implemented by SciKitLearn.
+        A GridSearchCV for getting the best hyper parameters for the decision tree is also running.
+
+        The method instantiate the tree; fit and predict the tree; and store the accuracy score in the class.
+        The method could also show the impact of using max_depth as hyper parameters on the training. (uncomment the
+        appropriate line for getting access to the plot).
+
+        Parameters
+        ----------
+        plotVisualisation : Boolean DEFAULT=False
+            If true, a plot of the mean test score regarding the max depth value tested will be plotted.
+
+        Returns
+        -------
+        (void)
+        &#34;&#34;&#34;
+        if self.X_train.size == 0 or self.y_train.size == 0:
+            raise TypeError(&#34;split Data before running a classifier!&#34;)
+
+        param_dist = {
+            &#34;max_depth&#34;: range(3, 10),
+            &#34;criterion&#34;: [&#34;entropy&#34;, &#34;gini&#34;],
+            #  &#34;min_samples_split&#34;: [2, 5, 10, 15, 20], #Do not produce relevant results.
+            #  &#34;min_samples_leaf&#34;: [1, 3, 5, 7, 10], #Do not produce relevant results.
+            #  &#34;max_leaf_nodes&#34;: [None, 3, 5, 7, 10, 15, 20], #Do not produce relevant results.
+        }
+
+        classifierBench = GridSearchCV(DecisionTreeClassifier(), param_dist, cv=10, n_jobs=-1, return_train_score=True)
+        print(self.X_train)
+        classifierBench.fit(X=self.X_train, y=self.y_train)
+
+        # Visualisation of the K-FOLD cross validation
+        if plotVisualisation:
+            for i in [&#39;mean_test_score&#39;, &#39;std_test_score&#39;, &#39;param_max_depth&#39;]:
+                print(i, &#34; : &#34;, classifierBench.cv_results_[i])
+
+            for ind, i in enumerate(classifierBench.cv_results_[&#39;param_max_depth&#39;]):
+                xGraph = classifierBench.cv_results_[&#39;param_max_depth&#39;][ind]
+                yGraph = classifierBench.cv_results_[&#39;mean_test_score&#39;][ind]
+                plt.scatter(xGraph, yGraph, label=&#39;Depth: &#39; + str(classifierBench.cv_results_[&#39;param_max_depth&#39;][ind]))
+
+            plt.legend()
+            plt.xlabel(&#39;Param Max Depth&#39;)
+            plt.ylabel(&#39;Mean (Test) score&#39;)
+            plt.show()
+
+        print(&#34;Tuned Decision Tree Parameters: {}&#34;.format(classifierBench.best_params_))
+
+        self.model = DecisionTreeClassifier(criterion=classifierBench.best_params_[&#39;criterion&#39;],
+                                            max_depth=classifierBench.best_params_[&#39;max_depth&#39;],
+                                            # min_samples_split=classifierBench.best_params_[&#39;min_samples_split&#39;], #Do not produce relevant results.
+                                            # min_samples_leaf=classifierBench.best_params_[&#39;min_samples_leaf&#39;], #Do not produce relevant results.
+                                            # max_leaf_nodes=classifierBench.best_params_[&#39;max_leaf_nodes&#39;], #Do not produce relevant results.
+                                            )
+        self.model = self.model.fit(self.X_train, self.y_train)
+        self.y_pred = self.model.predict(self.X_test)
+        self.accuracy = metrics.accuracy_score(self.y_test, self.y_pred)
+
+    def randomForestClassifier(self, crit):
+        &#34;&#34;&#34;
+        The randomForestClassifier public method is the wrapper of a Random Forest classifier implemented by SciKitLearn.
+        The method instantiate the trees; fit and predict the trees; and store the accuracy score in the class.
+
+        Parameters
+        ----------
+        crit : string&lt;&#34;entropy&#34;,&#34;gini&#34;&gt;
+            criterion used for validated a node of the tree (impurity, etc.).
+
+        Returns
+        -------
+        (void)
+        &#34;&#34;&#34;
+        if self.X_train.size == 0 or self.y_train.size == 0:
+            raise TypeError(&#34;split Data before running a classifier!&#34;)
+        self.model = RandomForestClassifier(n_estimators=100, criterion=crit, random_state=0)
+
+        self.model = self.model.fit(self.X_train, self.y_train)
+        self.y_pred = self.model.predict(self.X_test)
+        self.accuracy = metrics.accuracy_score(self.y_test, self.y_pred)
+
+    def knearestneighnour(self, optimized=False):
+        &#34;&#34;&#34;
+        The knearestneighnour public method is the wrapper of a K-NN classifier implemented by SciKitLearn.
+        With an optimized way, which get the best n hyperparameter via the aid of a loop between 40 K-NN with K=i, which
+        one produce the best score on the data given.
+
+        Parameters
+        ----------
+        optimized : Bool DEFAULT=FALSE
+            If True, the K-NN will run an optimized loop for having the best &#34;n&#34; to classify with.
+
+        Returns
+        -------
+        (void)
+        &#34;&#34;&#34;
+        if self.X_train.size == 0 or self.y_train.size == 0:
+            raise TypeError(&#34;split Data before running a classifier!&#34;)
+
+        scaler = StandardScaler()
+        scaler.fit(self.X_train)
+
+        self.X_train = scaler.transform(self.X_train)
+        self.X_test = scaler.transform(self.X_test)
+
+        # Calculating error for K values between 1 and 40
+        n_hyper_param = 5
+
+        if optimized:
+            error = []
+            for i in range(1, 40):
+                knn = KNeighborsClassifier(n_neighbors=i)
+                knn.fit(self.X_train, self.y_train)
+                pred_i = knn.predict(self.X_test)
+                error.append(np.mean(pred_i != self.y_test))
+
+            plt.figure(figsize=(12, 6))
+            plt.plot(range(1, 40), error, color=&#39;red&#39;, linestyle=&#39;dashed&#39;, marker=&#39;o&#39;,
+                     markerfacecolor=&#39;blue&#39;, markersize=10)
+            plt.title(&#39;Error Rate K Value&#39;)
+            plt.xlabel(&#39;K Value&#39;)
+            plt.ylabel(&#39;Mean Error&#39;)
+
+            plt.show()
+            n_hyper_param = input(&#34;Enter the n: &#34;)
+
+        self.model = KNeighborsClassifier(n_neighbors=int(n_hyper_param))
+        self.model = self.model.fit(self.X_train, self.y_train)
+        self.y_pred = self.model.predict(self.X_test)
+        self.accuracy = self.model.score(self.X_test, self.y_test)
+
+    def naiveBayes(self):
+        &#34;&#34;&#34;
+        The naiveBayes public method is the wrapper of a Naive Bayes classifier implemented by SciKitLearn.
+        The method instantiate the model; fit and predict the model; and store the accuracy score in the class.
+
+        Parameters
+        ----------
+        (void)
+
+        Returns
+        -------
+        (void)
+        &#34;&#34;&#34;
+        if self.X_train.size == 0 or self.y_train.size == 0:
+            raise TypeError(&#34;split Data before running a classifier!&#34;)
+        self.model = GaussianNB()
+
+        self.model = self.model.fit(self.X_train, self.y_train)
+        self.y_pred = self.model.predict(self.X_test)
+        self.accuracy = self.model.score(self.X_test, self.y_test)
+
+    ##### BENCH ALGORITHMS
+
+    def simpleAndOptimizedDecisionTreeBench(self):
+        &#34;&#34;&#34;
+        The simpleAndOptimizedDecisionTreeBench public method is the benchmarking of a simple DT and Optimized DT.
+
+        The process is as follow:
+        - Create the cross validation caller (ShugffleSplit from scikit learn for going over n iteration with test_size%
+        randomly selection as a validation set).
+        - Create the estimator.
+        - Plot the validation model curves
+        - Doing the above step both for the Simple DT and Optimized DT and observe the results on a subplot.
+
+        Parameters
+        ----------
+        (void)
+
+        Returns
+        -------
+        (void)
+        &#34;&#34;&#34;
+        fig, axes = plt.subplots(3, 2, figsize=(10, 15))
+        fig.suptitle(&#39;Simple DT and Optimized DT Model - Model Validation&#39;)
+
+        X = self.__input
+        y = self.__target
+
+        title = &#34;Learning Curves (Decision Tree)&#34;
+        cv = ShuffleSplit(n_splits=100, test_size=0.3, random_state=0)
+
+        estimator = DecisionTreeClassifier(criterion=&#34;entropy&#34;, max_depth=2)
+        self.plotValidationModelCurves(estimator, title, X, y, axes=axes[:, 0], ylim=(0.7, 1.01),
+                                       cv=cv, n_jobs=4)
+
+        title = &#34;Learning Curves (Decision tree with hyperparameters tunning&#34;
+
+        cv = ShuffleSplit(n_splits=100, test_size=0.3, random_state=0)
+
+        param_dist = {
+            &#34;max_depth&#34;: range(3, 10),
+            &#34;criterion&#34;: [&#34;entropy&#34;, &#34;gini&#34;],
+            # &#34;min_samples_split&#34;: [2, 5, 10, 15, 20],
+            # &#34;min_samples_leaf&#34;: [1, 3, 5, 7, 10],
+            # &#34;max_leaf_nodes&#34;: [None, 3, 5, 7, 10, 15, 20],
+        }
+
+        estimator = GridSearchCV(DecisionTreeClassifier(), param_dist, cv=10, n_jobs=-1, return_train_score=True)
+        # gives [{max_depth: 9}, {criterion: &#39;gini&#39;}]. Use the following estimator for computing faster.
+        # estimator = DecisionTreeClassifier(criterion=&#39;gini&#39;,
+        #                                   max_depth=9,
+        #                                   )
+        self.plotValidationModelCurves(estimator, title, X, y, axes=axes[:, 1], ylim=(0.7, 1.01),
+                                       cv=cv, n_jobs=4)
+
+        plt.show()
+
+    def SimpleDTandOptimizedDTVarianceDecomp(self):
+        &#34;&#34;&#34;
+        The SimpleDTandOptimizedDTVarianceDecomp public method is the gain in variance and bias of passing from
+        a simple Decision Tree to a Optimized Decision Tree.
+        [Inspired from the doc/tutorials available in scikitlearn](https://scikit-learn.org/stable/auto_examples/index.html)
+
+        The process is as follow:
+        - Create the estimator
+        - Evaluate his bias variance decomposition using mlxtend.
+        - Doing the above step twice for the Simple and Optimized Decision tree.
+        - Display the reduction of the variance from the first classifier to the second.
+        - Display the introduction of the bias from the first classifier to the second.
+
+        Parameters
+        ----------
+        (void)
+
+        Returns
+        -------
+        (void)
+        &#34;&#34;&#34;
+        dt = DecisionTreeClassifier(criterion=&#34;entropy&#34;, max_depth=2)
+        error_dt, bias_dt, var_dt = bias_variance_decomp(
+            dt,
+            self.X_train,
+            self.y_train,
+            self.X_test,
+            self.y_test,
+            &#39;mse&#39;,
+            random_seed=123
+        )
+
+        param_dist = {
+            &#34;max_depth&#34;: range(3, 10),
+            &#34;criterion&#34;: [&#34;entropy&#34;, &#34;gini&#34;],
+        }
+
+        OptDt = GridSearchCV(DecisionTreeClassifier(), param_dist, cv=10, n_jobs=-1, return_train_score=True)
+        error_dt_pruned, bias_dt_pruned, var_dt_pruned = bias_variance_decomp(
+            OptDt,
+            self.X_train,
+            self.y_train,
+            self.X_test,
+            self.y_test,
+            &#39;mse&#39;,
+            random_seed=123
+        )
+
+        print(&#34;Variance Impact from the first to the second classifier:&#34;,
+              str(np.round((var_dt_pruned / var_dt - 1) * 100, 2)) + &#39;%&#39;)
+        print(&#34;Bias Impact from the first to the second classifier:&#34;,
+              str(np.round((bias_dt_pruned / bias_dt - 1) * 100, 2)) + &#39;%&#39;)
+
+        # fig, ax = plt.subplots(nrows=1, ncols=2)
+
+        print(var_dt_pruned)
+        print(var_dt)
+        print(bias_dt_pruned)
+        print(bias_dt)
+
+        fig, ax = plt.subplots(nrows=1, ncols=2, figsize=(10, 8))
+
+        algorithms = [&#39;Simple DT&#39;, &#39;Optimised DT&#39;]
+        biases = [bias_dt, bias_dt_pruned]
+        ax[0].bar(algorithms, biases, color=&#39;lightblue&#39;)
+        ax[0].set_ylabel(&#39;Bias&#39;)
+        ax[0].set_title(&#39;Bias impact through a simple to an optimised DT&#39;)
+        ax[0].set_xticks(algorithms)
+        ax[0].set_xticklabels(algorithms)
+        ax[0].legend([&#39;Bias&#39;])
+
+        variances = [var_dt, var_dt_pruned]
+        ax[1].bar(algorithms, variances, color=&#39;#69b3a2&#39;)
+        ax[1].set_ylabel(&#39;Variance&#39;)
+        ax[1].set_title(&#39;Variance impact through a simple DT to an optimised DT&#39;)
+        ax[1].set_xticks(algorithms)
+        ax[1].set_xticklabels(algorithms)
+        ax[1].legend([&#39;Variance&#39;])
+
+        plt.show()
+
+    def benchAlgorithms(self):
+        &#34;&#34;&#34;
+        The benchAlgorithms public method is the benchmarking of all algorithms available in this class together with
+        the same input/class data. The output is a box plot which shows the outliers as well as where is the classifier
+        regarding is F1-score on a range of 0-1.
+
+        The process is as follow:
+        - Create the estimators.
+        - Evaluate the estimators with a KFold method.
+        - Append the results.
+        - Display the results on a box plot graph.
+
+        Parameters
+        ----------
+        (void)
+
+        Returns
+        -------
+        (void)
+        &#34;&#34;&#34;
+        param_dist = {
+            &#34;max_depth&#34;: range(3, 10),
+            &#34;criterion&#34;: [&#34;entropy&#34;, &#34;gini&#34;],
+        }
+
+        models = [
+            (&#39;NB&#39;, GaussianNB()),
+            (&#39;KNN&#39;, KNeighborsClassifier(n_neighbors=5)),
+            (&#39;RF&#39;, RandomForestClassifier(n_estimators=100, criterion=&#34;entropy&#34;, random_state=0)),
+            (&#39;DT&#39;, DecisionTreeClassifier(criterion=&#34;entropy&#34;, max_depth=3, random_state=0)),
+            (&#39;ODT&#39;, GridSearchCV(DecisionTreeClassifier(), param_dist, cv=10, n_jobs=-1, return_train_score=True))
+        ]
+
+        results = []
+        names = []
+        for name, model in models:
+            kfold = model_selection.KFold(n_splits=100, shuffle=True, random_state=0)
+            cv_results = model_selection.cross_val_score(model, self.__input, self.__target, cv=kfold, scoring=&#39;f1&#39;)
+            results.append(cv_results)
+            names.append(name)
+
+        fig = plt.figure()
+        fig.suptitle(&#39;Algorithms Comparison&#39;)
+        ax = fig.add_subplot(111)
+        plt.boxplot(results)
+        plt.ylabel(&#39;F1-Score&#39;)
+        ax.set_xticklabels(names)
+        plt.show()
+
+    def tree_to_code(self, tree, feature_names, pseudoCode=False):
+        &#34;&#34;&#34;
+        Outputs a decision tree model as a Python function
+
+        Parameters:
+        -----------
+        tree: decision tree model
+            The decision tree to represent as a function
+        feature_names: list
+            The feature names of the dataset used for building the decision tree
+        &#34;&#34;&#34;
+        if pseudoCode:
+            tree_rules = export_text(self.model, feature_names=list(feature_names))
+            print(tree_rules)
+            return
+
+        tree_ = tree.tree_
+        feature_name = [
+            feature_names[i] if i != _tree.TREE_UNDEFINED else &#34;undefined!&#34;
+            for i in tree_.feature
+        ]
+        print (&#34;def tree({}):&#34;.format(&#34;, &#34;.join(feature_names)))
+
+        def recurse(node, depth):
+            indent = &#34;  &#34; * depth
+            if tree_.feature[node] != _tree.TREE_UNDEFINED:
+                name = feature_name[node]
+                threshold = tree_.threshold[node]
+                print (&#34;{}if {} &lt;= {}:&#34;.format(indent, name, threshold))
+                recurse(tree_.children_left[node], depth + 1)
+                print (&#34;{}else:  # if {} &gt; {}&#34;.format(indent, name, threshold))
+                recurse(tree_.children_right[node], depth + 1)
+            else:
+                print (&#34;{}return {}&#34;.format(indent, tree_.value[node]))
+
+        recurse(0, 1)</code></pre>
+</details>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-classes">Classes</h2>
+<dl>
+<dt id="Machine-Learning-COVID19andFLUE.src.model.SupervisedModel"><code class="flex name class">
+<span>class <span class="ident">SupervisedModel</span></span>
+<span>(</span><span>inputData, target)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>The SupervisedModel class instance is about gathering a number of algorithms as well as benchmarking methods
+for helping with the classification of an input and target given during the instantiation of the class.</p>
+<ul>
+<li>Classification Algorithms: Decision-Tree / Decision Tree with hyperparameters tunning / K-NN (with optimized way) / Naive-Bayes / Random Forest.</li>
+<li>Benchmarking: Between all algorithms ; Between Simple and Optimized Decision tree ;
+The variance decomposition difference between a Simple Decision tree and an Optimized Decision tree.</li>
+</ul>
+<h2 id="init">Init</h2>
+<p>inputData : numpy.ndArray()
+input values that will be used for splitting the data as well as computing a classifier or generate metrics scores.
+target : numpy.ndArray()
+target values that will be used for splitting the data as well as teaching a classifier or generate metrics scores.</p>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt>An instance of the SupervisedModel() with all the public methods available below.</dt>
+<dt><code>An instance</code> of <code>SupervisedModel() is composed of:</code></dt>
+<dd>
+<ul>
+<li>__input = private attribute = input value stored during the instantiation of the class.</li>
+<li>__target = private attribute = input value stored during the instantiation of the class.</li>
+<li>model = Any of the algorithms implemented in the following class stored the classifier into this attribute.</li>
+<li>X_train = Training input acquired via the splitting method.</li>
+<li>X_test = Testing input acquired via the splitting method.</li>
+<li>y_train = Training teacher acquired via the splitting method.</li>
+<li>y_test = Testing teacher acquired via the splitting method.</li>
+<li>y_pred = Value of prediction from a classifier.</li>
+<li>mse = Mean squared error of a particular classifier acquired via the bias-variance-decom method.</li>
+<li>bias = Bias of a particular classifier acquired via the bias-variance-decom method.</li>
+<li>var = Variance of a particular classifier acquired via the bias-variance-decom method.</li>
+<li>accuracy = Accuracy of a classifier ran.</li>
+</ul>
+</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class SupervisedModel:
+    &#34;&#34;&#34;
+    The SupervisedModel class instance is about gathering a number of algorithms as well as benchmarking methods
+    for helping with the classification of an input and target given during the instantiation of the class.
+
+    - Classification Algorithms: Decision-Tree / Decision Tree with hyperparameters tunning / K-NN (with optimized way) / Naive-Bayes / Random Forest.
+    - Benchmarking: Between all algorithms ; Between Simple and Optimized Decision tree ;
+    The variance decomposition difference between a Simple Decision tree and an Optimized Decision tree.
+
+    Init
+    ----------
+    inputData : numpy.ndArray()
+        input values that will be used for splitting the data as well as computing a classifier or generate metrics scores.
+    target : numpy.ndArray()
+        target values that will be used for splitting the data as well as teaching a classifier or generate metrics scores.
+
+    Returns
+    -------
+    An instance of the SupervisedModel() with all the public methods available below.
+    An instance of SupervisedModel() is composed of:
+        - __input = private attribute = input value stored during the instantiation of the class.
+        - __target = private attribute = input value stored during the instantiation of the class.
+        - model = Any of the algorithms implemented in the following class stored the classifier into this attribute.
+        - X_train = Training input acquired via the splitting method.
+        - X_test = Testing input acquired via the splitting method.
+        - y_train = Training teacher acquired via the splitting method.
+        - y_test = Testing teacher acquired via the splitting method.
+        - y_pred = Value of prediction from a classifier.
+        - mse = Mean squared error of a particular classifier acquired via the bias-variance-decom method.
+        - bias = Bias of a particular classifier acquired via the bias-variance-decom method.
+        - var = Variance of a particular classifier acquired via the bias-variance-decom method.
+        - accuracy = Accuracy of a classifier ran.
+    &#34;&#34;&#34;
+
+    def __init__(self, inputData, target):
+        self.__input = inputData
+        self.__target = target
+        self.model = None
+        self.X_train = np.array([])
+        self.X_test = np.array([])
+        self.y_train = np.array([])
+        self.y_test = np.array([])
+        self.y_pred = np.array([])
+        self.mse = None
+        self.bias = None
+        self.var = None
+        self.accuracy = None
+
+    ##### UTILS
+
+    def splitData(self, testSize):  # testsize=0.3 --&gt; 70% training and 30% test
+        &#34;&#34;&#34;
+        The splitData public method give the possibility to split the data and stored the output into the class.
+        [train_test_split from scikit learn is used](https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.train_test_split.html)
+
+        Parameters
+        ----------
+        testSize : int
+            Example: testsize=0.3 --&gt; 70% training and 30% test.
+
+        Returns
+        -------
+        (void)
+        &#34;&#34;&#34;
+        self.X_train, self.X_test, self.y_train, self.y_test = train_test_split(
+            self.__input,
+            self.__target,
+            test_size=testSize,
+            random_state=0
+        )
+
+    def displayClassificationReport(self):
+        &#34;&#34;&#34;
+        The displayClassificationReport public method print the classification report of a particular classifier ran.
+        [classification_report from scikit learn is used](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.classification_report.html)
+
+        Parameters
+        ----------
+        (void)
+
+        Returns
+        -------
+        (void)
+        &#34;&#34;&#34;
+        if self.y_pred.size == 0:
+            raise TypeError(&#34;run a classifier before showing the report!&#34;)
+        print(classification_report(self.y_test, self.y_pred, target_names=[&#39;H1N1&#39;, &#39;COVID&#39;]))
+        print(&#34;Accuracy: %.3f&#34; % self.accuracy)
+
+    def displayConfusionMatrix(self, cliOrPlot=&#34;both&#34;):
+        &#34;&#34;&#34;
+        The displayConfusionMatrix public method plot the confusion matrix of a particular classifier ran.
+        [confusion_matrix from scikit learn is used](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.confusion_matrix.html)
+
+        Parameters
+        ----------
+        cliOrPlot: string&lt;&#34;both&#34;,&#34;cli&#34;&gt; DEFAULT:&#34;both&#34;
+            The parameter allow a little bit of verbose, CLI will only display the confusion matrix in the
+            command line interpreter. However, both will also plot the confusion matrix with the aid of matplotlib.
+
+        Returns
+        -------
+        (void)
+        &#34;&#34;&#34;
+        mat = confusion_matrix(self.y_test, self.y_pred)
+
+        if cliOrPlot in [&#34;both&#34;, &#34;cli&#34;]:
+            print(mat)
+
+        if cliOrPlot in [&#34;both&#34;, &#34;plot&#34;]:
+            names = [&#39;H1N1&#39;, &#39;COVID&#39;]
+
+            sns.heatmap(mat, square=True, annot=True, fmt=&#39;d&#39;, cbar=False,
+                        xticklabels=names, yticklabels=names)
+            plt.xlabel(&#39;Truth&#39;)
+            plt.ylabel(&#39;Predicted&#39;)
+            plt.show()
+
+    def biasVarianceTradeOff(self, lossFunction=&#34;mse&#34;, numRounds=200, display=True):
+        &#34;&#34;&#34;
+        The biasVarianceTradeOff public method print the bias variance trade off (i.e.: The mean square error, the Bias, the variance) of a particular classifier ran.
+        [bias_variance_decomp from mlxtend is used](http://rasbt.github.io/mlxtend/user_guide/evaluate/bias_variance_decomp/)
+
+        Parameters
+        ----------
+        lossFunction: string&lt;&#34;mse&#34;, &#34;0-1_loss&#34;&gt;
+            Allow to use one of the above loss function for the bias_variance_decomp API method.
+        numRounds: int range(1, inf) DEFAULT=200
+            Allow to give the number of bootstrapping that the API should do on the data for evaluating the model.
+        display: Boolean DEFAULT=True
+            Display or not the values, in the case of False, it will just stored the result into the class to use it
+            later.
+
+        Returns
+        -------
+        (void)
+        &#34;&#34;&#34;
+        self.mse, self.bias, self.var = bias_variance_decomp(
+            self.model,
+            self.X_train,
+            self.y_train,
+            self.X_test,
+            self.y_test,
+            loss=lossFunction,
+            num_rounds=numRounds,
+            random_seed=123)
+
+        # summarize results
+        if display:
+            print(&#39;mse Loss: %.3f&#39; % self.mse)
+            print(&#39;Bias: %.3f&#39; % self.bias)
+            print(&#39;Variance: %.3f&#39; % self.var)
+            print(&#34;Accuracy: %.3f&#34; % self.accuracy)
+
+    def plotValidationModelCurves(self, estimator, title, X, y, axes=None, ylim=None, cv=None,
+                                  n_jobs=None, train_sizes=np.linspace(.1, 1.0, 5)):
+        &#34;&#34;&#34;
+        The plotValidationModelCurves public method plot the validation of a model according to it&#39;s bias variance
+        trade off curve (overfit, underfit, goodfit), as well as the scalability and performance of the model acording
+        to the time it took for making it.
+        [Inspired from the doc/tutorials available in scikitlearn](https://scikit-learn.org/stable/auto_examples/index.html)
+
+        Parameters
+        ----------
+        estimator: scikitLearn classifier
+            The estimator is the classifier that will be test and plotted.
+        title: string
+            The title of the plot figure for a better genericity.
+        X: numpy.ndArray
+            Input stored in the class.
+        y: numpy.ndArray
+            Target class stored in the class.
+        axes: array[]
+            Axes of where to plot the result (used for subplot).
+        cv: caller || int
+            Number of cross-validation or a caller that will split the data with a method.
+
+        Returns
+        -------
+        (void)
+        &#34;&#34;&#34;
+        if axes is None:
+            _, axes = plt.subplots(1, 3, figsize=(20, 5))
+
+        axes[0].set_title(title)
+        if ylim is not None:
+            axes[0].set_ylim(*ylim)
+        axes[0].set_xlabel(&#34;Training samples&#34;)
+        axes[0].set_ylabel(&#34;Score&#34;)
+
+        train_sizes, train_scores, test_scores, fit_times, _ = \
+            learning_curve(estimator, X, y, cv=cv, n_jobs=n_jobs,
+                           train_sizes=train_sizes,
+                           return_times=True)
+        train_scores_mean = np.mean(train_scores, axis=1)
+        train_scores_std = np.std(train_scores, axis=1)
+        test_scores_mean = np.mean(test_scores, axis=1)
+        test_scores_std = np.std(test_scores, axis=1)
+        fit_times_mean = np.mean(fit_times, axis=1)
+        fit_times_std = np.std(fit_times, axis=1)
+
+        axes[0].grid()
+        axes[0].fill_between(train_sizes, train_scores_mean - train_scores_std,
+                             train_scores_mean + train_scores_std, alpha=0.1,
+                             color=&#34;r&#34;)
+        axes[0].fill_between(train_sizes, test_scores_mean - test_scores_std,
+                             test_scores_mean + test_scores_std, alpha=0.1,
+                             color=&#34;g&#34;)
+        axes[0].plot(train_sizes, train_scores_mean, &#39;o-&#39;, color=&#34;r&#34;,
+                     label=&#34;Training score&#34;)
+        axes[0].plot(train_sizes, test_scores_mean, &#39;o-&#39;, color=&#34;g&#34;,
+                     label=&#34;Cross-validation score&#34;)
+        axes[0].legend(loc=&#34;best&#34;)
+
+        axes[1].grid()
+        axes[1].plot(train_sizes, fit_times_mean, &#39;o-&#39;)
+        axes[1].fill_between(train_sizes, fit_times_mean - fit_times_std,
+                             fit_times_mean + fit_times_std, alpha=0.1)
+        axes[1].set_xlabel(&#34;Training examples&#34;)
+        axes[1].set_ylabel(&#34;fit_times&#34;)
+        axes[1].set_title(&#34;Scalability of the model&#34;)
+
+        axes[2].grid()
+        axes[2].plot(fit_times_mean, test_scores_mean, &#39;o-&#39;)
+        axes[2].fill_between(fit_times_mean, test_scores_mean - test_scores_std,
+                             test_scores_mean + test_scores_std, alpha=0.1)
+        axes[2].set_xlabel(&#34;fit_times&#34;)
+        axes[2].set_ylabel(&#34;Score&#34;)
+        axes[2].set_title(&#34;Performance of the model&#34;)
+
+        return plt
+
+    def decisionTreeToPic(self, featureColumns=np.array([])):
+        &#34;&#34;&#34;
+        The decisionTreeToPic public method save as image the decision tree model stored in the class.
+        WARNING: Do not work with other classifier.
+        [export_graphviz from scikitlearn is used](https://scikit-learn.org/stable/modules/generated/sklearn.tree.export_graphviz.html)
+
+        Parameters
+        ----------
+        featureColumns: numpy.ndArrray&lt;string&gt;
+           A list of string that contains the column names of the input data stored in the class.
+
+        Returns
+        -------
+        (void)
+        &#34;&#34;&#34;
+        if featureColumns.size == 0:
+            raise TypeError(&#34;Feature Columns are needed&#34;)
+
+        dot_data = StringIO()
+        export_graphviz(self.model, out_file=dot_data,
+                        filled=True, rounded=True,
+                        special_characters=True, feature_names=featureColumns, class_names=[&#39;H1N1&#39;, &#39;COVID&#39;])
+        graph = pydotplus.graph_from_dot_data(dot_data.getvalue())
+        graph.write_png(&#39;output/tree.png&#39;)
+        Image(graph.create_png())
+
+    def showValidationCurveMaxDepth(self, classifierBench, param_dist):
+        &#34;&#34;&#34;
+        The showValidationCurveMaxDepth public method plot the impact of the hyperparameter max_depth during the training
+        for a decision tree classifier with gridSearchCV (cross validation) results.
+
+        Parameters
+        ----------
+        classifierBench : GridSearchCV()
+            CrossValidated &#34;gridSearch&#34; from scikitLearn results.
+        param_dist : Object
+            Hyperparameters used for the GridSearchCV.
+
+        Returns
+        -------
+        (void)
+        &#34;&#34;&#34;
+        train_scores_mean = classifierBench.cv_results_[&#39;mean_train_score&#39;]
+        train_scores_std = classifierBench.cv_results_[&#39;std_train_score&#39;]
+        test_scores_mean = classifierBench.cv_results_[&#39;mean_test_score&#39;]
+        test_scores_std = classifierBench.cv_results_[&#39;std_test_score&#39;]
+
+        datas = param_dist[&#39;max_depth&#39;]
+
+        plt.figure()
+        plt.title(&#39;Model&#39;)
+        plt.xlabel(&#39;max_depth&#39;)
+        plt.ylabel(&#39;Score&#39;)
+
+        plt.semilogx(datas, train_scores_mean, label=&#39;Mean Train score&#39;,
+                     color=&#39;navy&#39;)
+        plt.gca().fill_between(datas,
+                               train_scores_mean - train_scores_std,
+                               train_scores_mean + train_scores_std,
+                               alpha=0.2,
+                               color=&#39;navy&#39;)
+        plt.semilogx(datas, test_scores_mean,
+                     label=&#39;Mean Test score&#39;, color=&#39;darkorange&#39;)
+
+        plt.gca().fill_between(datas,
+                               test_scores_mean - test_scores_std,
+                               test_scores_mean + test_scores_std,
+                               alpha=0.2,
+                               color=&#39;darkorange&#39;)
+
+        plt.legend(loc=&#39;best&#39;)
+        plt.show()
+
+    ##### ALGORITHMS
+
+    def decisionTree(self, crit, depth):
+        &#34;&#34;&#34;
+        The decisionTree public method is the wrapper of a Decision tree Classifier implemented by SciKitLearn.
+        The method instantiate the tree; fit and predict the tree; and store the accuracy score in the class.
+
+        Parameters
+        ----------
+        crit : string&lt;&#34;entropy&#34;,&#34;gini&#34;&gt;
+            criterion used for validated a node of the tree (impurity, etc.).
+        depth : int
+            How deep could go the model.
+
+        Returns
+        -------
+        (void)
+        &#34;&#34;&#34;
+        if self.X_train.size == 0 or self.y_train.size == 0:
+            raise TypeError(&#34;split Data before running a classifier!&#34;)
+        self.model = DecisionTreeClassifier(criterion=crit, max_depth=depth, random_state=0)
+        self.model = self.model.fit(self.X_train, self.y_train)
+        self.y_pred = self.model.predict(self.X_test)
+        self.accuracy = metrics.accuracy_score(self.y_test, self.y_pred)
+
+    def decisionTreeOptimizedDepth(self, plotVisualisation=False):
+        &#34;&#34;&#34;
+        The decisionTreeOptimizedDepth public method is the wrapper of a Decision tree Classifier implemented by SciKitLearn.
+        A GridSearchCV for getting the best hyper parameters for the decision tree is also running.
+
+        The method instantiate the tree; fit and predict the tree; and store the accuracy score in the class.
+        The method could also show the impact of using max_depth as hyper parameters on the training. (uncomment the
+        appropriate line for getting access to the plot).
+
+        Parameters
+        ----------
+        plotVisualisation : Boolean DEFAULT=False
+            If true, a plot of the mean test score regarding the max depth value tested will be plotted.
+
+        Returns
+        -------
+        (void)
+        &#34;&#34;&#34;
+        if self.X_train.size == 0 or self.y_train.size == 0:
+            raise TypeError(&#34;split Data before running a classifier!&#34;)
+
+        param_dist = {
+            &#34;max_depth&#34;: range(3, 10),
+            &#34;criterion&#34;: [&#34;entropy&#34;, &#34;gini&#34;],
+            #  &#34;min_samples_split&#34;: [2, 5, 10, 15, 20], #Do not produce relevant results.
+            #  &#34;min_samples_leaf&#34;: [1, 3, 5, 7, 10], #Do not produce relevant results.
+            #  &#34;max_leaf_nodes&#34;: [None, 3, 5, 7, 10, 15, 20], #Do not produce relevant results.
+        }
+
+        classifierBench = GridSearchCV(DecisionTreeClassifier(), param_dist, cv=10, n_jobs=-1, return_train_score=True)
+        print(self.X_train)
+        classifierBench.fit(X=self.X_train, y=self.y_train)
+
+        # Visualisation of the K-FOLD cross validation
+        if plotVisualisation:
+            for i in [&#39;mean_test_score&#39;, &#39;std_test_score&#39;, &#39;param_max_depth&#39;]:
+                print(i, &#34; : &#34;, classifierBench.cv_results_[i])
+
+            for ind, i in enumerate(classifierBench.cv_results_[&#39;param_max_depth&#39;]):
+                xGraph = classifierBench.cv_results_[&#39;param_max_depth&#39;][ind]
+                yGraph = classifierBench.cv_results_[&#39;mean_test_score&#39;][ind]
+                plt.scatter(xGraph, yGraph, label=&#39;Depth: &#39; + str(classifierBench.cv_results_[&#39;param_max_depth&#39;][ind]))
+
+            plt.legend()
+            plt.xlabel(&#39;Param Max Depth&#39;)
+            plt.ylabel(&#39;Mean (Test) score&#39;)
+            plt.show()
+
+        print(&#34;Tuned Decision Tree Parameters: {}&#34;.format(classifierBench.best_params_))
+
+        self.model = DecisionTreeClassifier(criterion=classifierBench.best_params_[&#39;criterion&#39;],
+                                            max_depth=classifierBench.best_params_[&#39;max_depth&#39;],
+                                            # min_samples_split=classifierBench.best_params_[&#39;min_samples_split&#39;], #Do not produce relevant results.
+                                            # min_samples_leaf=classifierBench.best_params_[&#39;min_samples_leaf&#39;], #Do not produce relevant results.
+                                            # max_leaf_nodes=classifierBench.best_params_[&#39;max_leaf_nodes&#39;], #Do not produce relevant results.
+                                            )
+        self.model = self.model.fit(self.X_train, self.y_train)
+        self.y_pred = self.model.predict(self.X_test)
+        self.accuracy = metrics.accuracy_score(self.y_test, self.y_pred)
+
+    def randomForestClassifier(self, crit):
+        &#34;&#34;&#34;
+        The randomForestClassifier public method is the wrapper of a Random Forest classifier implemented by SciKitLearn.
+        The method instantiate the trees; fit and predict the trees; and store the accuracy score in the class.
+
+        Parameters
+        ----------
+        crit : string&lt;&#34;entropy&#34;,&#34;gini&#34;&gt;
+            criterion used for validated a node of the tree (impurity, etc.).
+
+        Returns
+        -------
+        (void)
+        &#34;&#34;&#34;
+        if self.X_train.size == 0 or self.y_train.size == 0:
+            raise TypeError(&#34;split Data before running a classifier!&#34;)
+        self.model = RandomForestClassifier(n_estimators=100, criterion=crit, random_state=0)
+
+        self.model = self.model.fit(self.X_train, self.y_train)
+        self.y_pred = self.model.predict(self.X_test)
+        self.accuracy = metrics.accuracy_score(self.y_test, self.y_pred)
+
+    def knearestneighnour(self, optimized=False):
+        &#34;&#34;&#34;
+        The knearestneighnour public method is the wrapper of a K-NN classifier implemented by SciKitLearn.
+        With an optimized way, which get the best n hyperparameter via the aid of a loop between 40 K-NN with K=i, which
+        one produce the best score on the data given.
+
+        Parameters
+        ----------
+        optimized : Bool DEFAULT=FALSE
+            If True, the K-NN will run an optimized loop for having the best &#34;n&#34; to classify with.
+
+        Returns
+        -------
+        (void)
+        &#34;&#34;&#34;
+        if self.X_train.size == 0 or self.y_train.size == 0:
+            raise TypeError(&#34;split Data before running a classifier!&#34;)
+
+        scaler = StandardScaler()
+        scaler.fit(self.X_train)
+
+        self.X_train = scaler.transform(self.X_train)
+        self.X_test = scaler.transform(self.X_test)
+
+        # Calculating error for K values between 1 and 40
+        n_hyper_param = 5
+
+        if optimized:
+            error = []
+            for i in range(1, 40):
+                knn = KNeighborsClassifier(n_neighbors=i)
+                knn.fit(self.X_train, self.y_train)
+                pred_i = knn.predict(self.X_test)
+                error.append(np.mean(pred_i != self.y_test))
+
+            plt.figure(figsize=(12, 6))
+            plt.plot(range(1, 40), error, color=&#39;red&#39;, linestyle=&#39;dashed&#39;, marker=&#39;o&#39;,
+                     markerfacecolor=&#39;blue&#39;, markersize=10)
+            plt.title(&#39;Error Rate K Value&#39;)
+            plt.xlabel(&#39;K Value&#39;)
+            plt.ylabel(&#39;Mean Error&#39;)
+
+            plt.show()
+            n_hyper_param = input(&#34;Enter the n: &#34;)
+
+        self.model = KNeighborsClassifier(n_neighbors=int(n_hyper_param))
+        self.model = self.model.fit(self.X_train, self.y_train)
+        self.y_pred = self.model.predict(self.X_test)
+        self.accuracy = self.model.score(self.X_test, self.y_test)
+
+    def naiveBayes(self):
+        &#34;&#34;&#34;
+        The naiveBayes public method is the wrapper of a Naive Bayes classifier implemented by SciKitLearn.
+        The method instantiate the model; fit and predict the model; and store the accuracy score in the class.
+
+        Parameters
+        ----------
+        (void)
+
+        Returns
+        -------
+        (void)
+        &#34;&#34;&#34;
+        if self.X_train.size == 0 or self.y_train.size == 0:
+            raise TypeError(&#34;split Data before running a classifier!&#34;)
+        self.model = GaussianNB()
+
+        self.model = self.model.fit(self.X_train, self.y_train)
+        self.y_pred = self.model.predict(self.X_test)
+        self.accuracy = self.model.score(self.X_test, self.y_test)
+
+    ##### BENCH ALGORITHMS
+
+    def simpleAndOptimizedDecisionTreeBench(self):
+        &#34;&#34;&#34;
+        The simpleAndOptimizedDecisionTreeBench public method is the benchmarking of a simple DT and Optimized DT.
+
+        The process is as follow:
+        - Create the cross validation caller (ShugffleSplit from scikit learn for going over n iteration with test_size%
+        randomly selection as a validation set).
+        - Create the estimator.
+        - Plot the validation model curves
+        - Doing the above step both for the Simple DT and Optimized DT and observe the results on a subplot.
+
+        Parameters
+        ----------
+        (void)
+
+        Returns
+        -------
+        (void)
+        &#34;&#34;&#34;
+        fig, axes = plt.subplots(3, 2, figsize=(10, 15))
+        fig.suptitle(&#39;Simple DT and Optimized DT Model - Model Validation&#39;)
+
+        X = self.__input
+        y = self.__target
+
+        title = &#34;Learning Curves (Decision Tree)&#34;
+        cv = ShuffleSplit(n_splits=100, test_size=0.3, random_state=0)
+
+        estimator = DecisionTreeClassifier(criterion=&#34;entropy&#34;, max_depth=2)
+        self.plotValidationModelCurves(estimator, title, X, y, axes=axes[:, 0], ylim=(0.7, 1.01),
+                                       cv=cv, n_jobs=4)
+
+        title = &#34;Learning Curves (Decision tree with hyperparameters tunning&#34;
+
+        cv = ShuffleSplit(n_splits=100, test_size=0.3, random_state=0)
+
+        param_dist = {
+            &#34;max_depth&#34;: range(3, 10),
+            &#34;criterion&#34;: [&#34;entropy&#34;, &#34;gini&#34;],
+            # &#34;min_samples_split&#34;: [2, 5, 10, 15, 20],
+            # &#34;min_samples_leaf&#34;: [1, 3, 5, 7, 10],
+            # &#34;max_leaf_nodes&#34;: [None, 3, 5, 7, 10, 15, 20],
+        }
+
+        estimator = GridSearchCV(DecisionTreeClassifier(), param_dist, cv=10, n_jobs=-1, return_train_score=True)
+        # gives [{max_depth: 9}, {criterion: &#39;gini&#39;}]. Use the following estimator for computing faster.
+        # estimator = DecisionTreeClassifier(criterion=&#39;gini&#39;,
+        #                                   max_depth=9,
+        #                                   )
+        self.plotValidationModelCurves(estimator, title, X, y, axes=axes[:, 1], ylim=(0.7, 1.01),
+                                       cv=cv, n_jobs=4)
+
+        plt.show()
+
+    def SimpleDTandOptimizedDTVarianceDecomp(self):
+        &#34;&#34;&#34;
+        The SimpleDTandOptimizedDTVarianceDecomp public method is the gain in variance and bias of passing from
+        a simple Decision Tree to a Optimized Decision Tree.
+        [Inspired from the doc/tutorials available in scikitlearn](https://scikit-learn.org/stable/auto_examples/index.html)
+
+        The process is as follow:
+        - Create the estimator
+        - Evaluate his bias variance decomposition using mlxtend.
+        - Doing the above step twice for the Simple and Optimized Decision tree.
+        - Display the reduction of the variance from the first classifier to the second.
+        - Display the introduction of the bias from the first classifier to the second.
+
+        Parameters
+        ----------
+        (void)
+
+        Returns
+        -------
+        (void)
+        &#34;&#34;&#34;
+        dt = DecisionTreeClassifier(criterion=&#34;entropy&#34;, max_depth=2)
+        error_dt, bias_dt, var_dt = bias_variance_decomp(
+            dt,
+            self.X_train,
+            self.y_train,
+            self.X_test,
+            self.y_test,
+            &#39;mse&#39;,
+            random_seed=123
+        )
+
+        param_dist = {
+            &#34;max_depth&#34;: range(3, 10),
+            &#34;criterion&#34;: [&#34;entropy&#34;, &#34;gini&#34;],
+        }
+
+        OptDt = GridSearchCV(DecisionTreeClassifier(), param_dist, cv=10, n_jobs=-1, return_train_score=True)
+        error_dt_pruned, bias_dt_pruned, var_dt_pruned = bias_variance_decomp(
+            OptDt,
+            self.X_train,
+            self.y_train,
+            self.X_test,
+            self.y_test,
+            &#39;mse&#39;,
+            random_seed=123
+        )
+
+        print(&#34;Variance Impact from the first to the second classifier:&#34;,
+              str(np.round((var_dt_pruned / var_dt - 1) * 100, 2)) + &#39;%&#39;)
+        print(&#34;Bias Impact from the first to the second classifier:&#34;,
+              str(np.round((bias_dt_pruned / bias_dt - 1) * 100, 2)) + &#39;%&#39;)
+
+        # fig, ax = plt.subplots(nrows=1, ncols=2)
+
+        print(var_dt_pruned)
+        print(var_dt)
+        print(bias_dt_pruned)
+        print(bias_dt)
+
+        fig, ax = plt.subplots(nrows=1, ncols=2, figsize=(10, 8))
+
+        algorithms = [&#39;Simple DT&#39;, &#39;Optimised DT&#39;]
+        biases = [bias_dt, bias_dt_pruned]
+        ax[0].bar(algorithms, biases, color=&#39;lightblue&#39;)
+        ax[0].set_ylabel(&#39;Bias&#39;)
+        ax[0].set_title(&#39;Bias impact through a simple to an optimised DT&#39;)
+        ax[0].set_xticks(algorithms)
+        ax[0].set_xticklabels(algorithms)
+        ax[0].legend([&#39;Bias&#39;])
+
+        variances = [var_dt, var_dt_pruned]
+        ax[1].bar(algorithms, variances, color=&#39;#69b3a2&#39;)
+        ax[1].set_ylabel(&#39;Variance&#39;)
+        ax[1].set_title(&#39;Variance impact through a simple DT to an optimised DT&#39;)
+        ax[1].set_xticks(algorithms)
+        ax[1].set_xticklabels(algorithms)
+        ax[1].legend([&#39;Variance&#39;])
+
+        plt.show()
+
+    def benchAlgorithms(self):
+        &#34;&#34;&#34;
+        The benchAlgorithms public method is the benchmarking of all algorithms available in this class together with
+        the same input/class data. The output is a box plot which shows the outliers as well as where is the classifier
+        regarding is F1-score on a range of 0-1.
+
+        The process is as follow:
+        - Create the estimators.
+        - Evaluate the estimators with a KFold method.
+        - Append the results.
+        - Display the results on a box plot graph.
+
+        Parameters
+        ----------
+        (void)
+
+        Returns
+        -------
+        (void)
+        &#34;&#34;&#34;
+        param_dist = {
+            &#34;max_depth&#34;: range(3, 10),
+            &#34;criterion&#34;: [&#34;entropy&#34;, &#34;gini&#34;],
+        }
+
+        models = [
+            (&#39;NB&#39;, GaussianNB()),
+            (&#39;KNN&#39;, KNeighborsClassifier(n_neighbors=5)),
+            (&#39;RF&#39;, RandomForestClassifier(n_estimators=100, criterion=&#34;entropy&#34;, random_state=0)),
+            (&#39;DT&#39;, DecisionTreeClassifier(criterion=&#34;entropy&#34;, max_depth=3, random_state=0)),
+            (&#39;ODT&#39;, GridSearchCV(DecisionTreeClassifier(), param_dist, cv=10, n_jobs=-1, return_train_score=True))
+        ]
+
+        results = []
+        names = []
+        for name, model in models:
+            kfold = model_selection.KFold(n_splits=100, shuffle=True, random_state=0)
+            cv_results = model_selection.cross_val_score(model, self.__input, self.__target, cv=kfold, scoring=&#39;f1&#39;)
+            results.append(cv_results)
+            names.append(name)
+
+        fig = plt.figure()
+        fig.suptitle(&#39;Algorithms Comparison&#39;)
+        ax = fig.add_subplot(111)
+        plt.boxplot(results)
+        plt.ylabel(&#39;F1-Score&#39;)
+        ax.set_xticklabels(names)
+        plt.show()
+
+    def tree_to_code(self, tree, feature_names, pseudoCode=False):
+        &#34;&#34;&#34;
+        Outputs a decision tree model as a Python function
+
+        Parameters:
+        -----------
+        tree: decision tree model
+            The decision tree to represent as a function
+        feature_names: list
+            The feature names of the dataset used for building the decision tree
+        &#34;&#34;&#34;
+        if pseudoCode:
+            tree_rules = export_text(self.model, feature_names=list(feature_names))
+            print(tree_rules)
+            return
+
+        tree_ = tree.tree_
+        feature_name = [
+            feature_names[i] if i != _tree.TREE_UNDEFINED else &#34;undefined!&#34;
+            for i in tree_.feature
+        ]
+        print (&#34;def tree({}):&#34;.format(&#34;, &#34;.join(feature_names)))
+
+        def recurse(node, depth):
+            indent = &#34;  &#34; * depth
+            if tree_.feature[node] != _tree.TREE_UNDEFINED:
+                name = feature_name[node]
+                threshold = tree_.threshold[node]
+                print (&#34;{}if {} &lt;= {}:&#34;.format(indent, name, threshold))
+                recurse(tree_.children_left[node], depth + 1)
+                print (&#34;{}else:  # if {} &gt; {}&#34;.format(indent, name, threshold))
+                recurse(tree_.children_right[node], depth + 1)
+            else:
+                print (&#34;{}return {}&#34;.format(indent, tree_.value[node]))
+
+        recurse(0, 1)</code></pre>
+</details>
+<h3>Methods</h3>
+<dl>
+<dt id="Machine-Learning-COVID19andFLUE.src.model.SupervisedModel.SimpleDTandOptimizedDTVarianceDecomp"><code class="name flex">
+<span>def <span class="ident">SimpleDTandOptimizedDTVarianceDecomp</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>The SimpleDTandOptimizedDTVarianceDecomp public method is the gain in variance and bias of passing from
+a simple Decision Tree to a Optimized Decision Tree.
+<a href="https://scikit-learn.org/stable/auto_examples/index.html">Inspired from the doc/tutorials available in scikitlearn</a></p>
+<p>The process is as follow:
+- Create the estimator
+- Evaluate his bias variance decomposition using mlxtend.
+- Doing the above step twice for the Simple and Optimized Decision tree.
+- Display the reduction of the variance from the first classifier to the second.
+- Display the introduction of the bias from the first classifier to the second.</p>
+<h2 id="parameters">Parameters</h2>
+<p>(void)</p>
+<h2 id="returns">Returns</h2>
+<p>(void)</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def SimpleDTandOptimizedDTVarianceDecomp(self):
+    &#34;&#34;&#34;
+    The SimpleDTandOptimizedDTVarianceDecomp public method is the gain in variance and bias of passing from
+    a simple Decision Tree to a Optimized Decision Tree.
+    [Inspired from the doc/tutorials available in scikitlearn](https://scikit-learn.org/stable/auto_examples/index.html)
+
+    The process is as follow:
+    - Create the estimator
+    - Evaluate his bias variance decomposition using mlxtend.
+    - Doing the above step twice for the Simple and Optimized Decision tree.
+    - Display the reduction of the variance from the first classifier to the second.
+    - Display the introduction of the bias from the first classifier to the second.
+
+    Parameters
+    ----------
+    (void)
+
+    Returns
+    -------
+    (void)
+    &#34;&#34;&#34;
+    dt = DecisionTreeClassifier(criterion=&#34;entropy&#34;, max_depth=2)
+    error_dt, bias_dt, var_dt = bias_variance_decomp(
+        dt,
+        self.X_train,
+        self.y_train,
+        self.X_test,
+        self.y_test,
+        &#39;mse&#39;,
+        random_seed=123
+    )
+
+    param_dist = {
+        &#34;max_depth&#34;: range(3, 10),
+        &#34;criterion&#34;: [&#34;entropy&#34;, &#34;gini&#34;],
+    }
+
+    OptDt = GridSearchCV(DecisionTreeClassifier(), param_dist, cv=10, n_jobs=-1, return_train_score=True)
+    error_dt_pruned, bias_dt_pruned, var_dt_pruned = bias_variance_decomp(
+        OptDt,
+        self.X_train,
+        self.y_train,
+        self.X_test,
+        self.y_test,
+        &#39;mse&#39;,
+        random_seed=123
+    )
+
+    print(&#34;Variance Impact from the first to the second classifier:&#34;,
+          str(np.round((var_dt_pruned / var_dt - 1) * 100, 2)) + &#39;%&#39;)
+    print(&#34;Bias Impact from the first to the second classifier:&#34;,
+          str(np.round((bias_dt_pruned / bias_dt - 1) * 100, 2)) + &#39;%&#39;)
+
+    # fig, ax = plt.subplots(nrows=1, ncols=2)
+
+    print(var_dt_pruned)
+    print(var_dt)
+    print(bias_dt_pruned)
+    print(bias_dt)
+
+    fig, ax = plt.subplots(nrows=1, ncols=2, figsize=(10, 8))
+
+    algorithms = [&#39;Simple DT&#39;, &#39;Optimised DT&#39;]
+    biases = [bias_dt, bias_dt_pruned]
+    ax[0].bar(algorithms, biases, color=&#39;lightblue&#39;)
+    ax[0].set_ylabel(&#39;Bias&#39;)
+    ax[0].set_title(&#39;Bias impact through a simple to an optimised DT&#39;)
+    ax[0].set_xticks(algorithms)
+    ax[0].set_xticklabels(algorithms)
+    ax[0].legend([&#39;Bias&#39;])
+
+    variances = [var_dt, var_dt_pruned]
+    ax[1].bar(algorithms, variances, color=&#39;#69b3a2&#39;)
+    ax[1].set_ylabel(&#39;Variance&#39;)
+    ax[1].set_title(&#39;Variance impact through a simple DT to an optimised DT&#39;)
+    ax[1].set_xticks(algorithms)
+    ax[1].set_xticklabels(algorithms)
+    ax[1].legend([&#39;Variance&#39;])
+
+    plt.show()</code></pre>
+</details>
+</dd>
+<dt id="Machine-Learning-COVID19andFLUE.src.model.SupervisedModel.benchAlgorithms"><code class="name flex">
+<span>def <span class="ident">benchAlgorithms</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>The benchAlgorithms public method is the benchmarking of all algorithms available in this class together with
+the same input/class data. The output is a box plot which shows the outliers as well as where is the classifier
+regarding is F1-score on a range of 0-1.</p>
+<p>The process is as follow:
+- Create the estimators.
+- Evaluate the estimators with a KFold method.
+- Append the results.
+- Display the results on a box plot graph.</p>
+<h2 id="parameters">Parameters</h2>
+<p>(void)</p>
+<h2 id="returns">Returns</h2>
+<p>(void)</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def benchAlgorithms(self):
+    &#34;&#34;&#34;
+    The benchAlgorithms public method is the benchmarking of all algorithms available in this class together with
+    the same input/class data. The output is a box plot which shows the outliers as well as where is the classifier
+    regarding is F1-score on a range of 0-1.
+
+    The process is as follow:
+    - Create the estimators.
+    - Evaluate the estimators with a KFold method.
+    - Append the results.
+    - Display the results on a box plot graph.
+
+    Parameters
+    ----------
+    (void)
+
+    Returns
+    -------
+    (void)
+    &#34;&#34;&#34;
+    param_dist = {
+        &#34;max_depth&#34;: range(3, 10),
+        &#34;criterion&#34;: [&#34;entropy&#34;, &#34;gini&#34;],
+    }
+
+    models = [
+        (&#39;NB&#39;, GaussianNB()),
+        (&#39;KNN&#39;, KNeighborsClassifier(n_neighbors=5)),
+        (&#39;RF&#39;, RandomForestClassifier(n_estimators=100, criterion=&#34;entropy&#34;, random_state=0)),
+        (&#39;DT&#39;, DecisionTreeClassifier(criterion=&#34;entropy&#34;, max_depth=3, random_state=0)),
+        (&#39;ODT&#39;, GridSearchCV(DecisionTreeClassifier(), param_dist, cv=10, n_jobs=-1, return_train_score=True))
+    ]
+
+    results = []
+    names = []
+    for name, model in models:
+        kfold = model_selection.KFold(n_splits=100, shuffle=True, random_state=0)
+        cv_results = model_selection.cross_val_score(model, self.__input, self.__target, cv=kfold, scoring=&#39;f1&#39;)
+        results.append(cv_results)
+        names.append(name)
+
+    fig = plt.figure()
+    fig.suptitle(&#39;Algorithms Comparison&#39;)
+    ax = fig.add_subplot(111)
+    plt.boxplot(results)
+    plt.ylabel(&#39;F1-Score&#39;)
+    ax.set_xticklabels(names)
+    plt.show()</code></pre>
+</details>
+</dd>
+<dt id="Machine-Learning-COVID19andFLUE.src.model.SupervisedModel.biasVarianceTradeOff"><code class="name flex">
+<span>def <span class="ident">biasVarianceTradeOff</span></span>(<span>self, lossFunction='mse', numRounds=200, display=True)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>The biasVarianceTradeOff public method print the bias variance trade off (i.e.: The mean square error, the Bias, the variance) of a particular classifier ran.
+<a href="http://rasbt.github.io/mlxtend/user_guide/evaluate/bias_variance_decomp/">bias_variance_decomp from mlxtend is used</a></p>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>lossFunction</code></strong> :&ensp;<code>string&lt;"mse", "0-1_loss"&gt;</code></dt>
+<dd>Allow to use one of the above loss function for the bias_variance_decomp API method.</dd>
+<dt><strong><code>numRounds</code></strong> :&ensp;<code>int range(1, inf) DEFAULT=200</code></dt>
+<dd>Allow to give the number of bootstrapping that the API should do on the data for evaluating the model.</dd>
+<dt><strong><code>display</code></strong> :&ensp;<code>Boolean DEFAULT=True</code></dt>
+<dd>Display or not the values, in the case of False, it will just stored the result into the class to use it
+later.</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<p>(void)</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def biasVarianceTradeOff(self, lossFunction=&#34;mse&#34;, numRounds=200, display=True):
+    &#34;&#34;&#34;
+    The biasVarianceTradeOff public method print the bias variance trade off (i.e.: The mean square error, the Bias, the variance) of a particular classifier ran.
+    [bias_variance_decomp from mlxtend is used](http://rasbt.github.io/mlxtend/user_guide/evaluate/bias_variance_decomp/)
+
+    Parameters
+    ----------
+    lossFunction: string&lt;&#34;mse&#34;, &#34;0-1_loss&#34;&gt;
+        Allow to use one of the above loss function for the bias_variance_decomp API method.
+    numRounds: int range(1, inf) DEFAULT=200
+        Allow to give the number of bootstrapping that the API should do on the data for evaluating the model.
+    display: Boolean DEFAULT=True
+        Display or not the values, in the case of False, it will just stored the result into the class to use it
+        later.
+
+    Returns
+    -------
+    (void)
+    &#34;&#34;&#34;
+    self.mse, self.bias, self.var = bias_variance_decomp(
+        self.model,
+        self.X_train,
+        self.y_train,
+        self.X_test,
+        self.y_test,
+        loss=lossFunction,
+        num_rounds=numRounds,
+        random_seed=123)
+
+    # summarize results
+    if display:
+        print(&#39;mse Loss: %.3f&#39; % self.mse)
+        print(&#39;Bias: %.3f&#39; % self.bias)
+        print(&#39;Variance: %.3f&#39; % self.var)
+        print(&#34;Accuracy: %.3f&#34; % self.accuracy)</code></pre>
+</details>
+</dd>
+<dt id="Machine-Learning-COVID19andFLUE.src.model.SupervisedModel.decisionTree"><code class="name flex">
+<span>def <span class="ident">decisionTree</span></span>(<span>self, crit, depth)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>The decisionTree public method is the wrapper of a Decision tree Classifier implemented by SciKitLearn.
+The method instantiate the tree; fit and predict the tree; and store the accuracy score in the class.</p>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>crit</code></strong> :&ensp;<code>string&lt;"entropy","gini"&gt;</code></dt>
+<dd>criterion used for validated a node of the tree (impurity, etc.).</dd>
+<dt><strong><code>depth</code></strong> :&ensp;<code>int</code></dt>
+<dd>How deep could go the model.</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<p>(void)</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def decisionTree(self, crit, depth):
+    &#34;&#34;&#34;
+    The decisionTree public method is the wrapper of a Decision tree Classifier implemented by SciKitLearn.
+    The method instantiate the tree; fit and predict the tree; and store the accuracy score in the class.
+
+    Parameters
+    ----------
+    crit : string&lt;&#34;entropy&#34;,&#34;gini&#34;&gt;
+        criterion used for validated a node of the tree (impurity, etc.).
+    depth : int
+        How deep could go the model.
+
+    Returns
+    -------
+    (void)
+    &#34;&#34;&#34;
+    if self.X_train.size == 0 or self.y_train.size == 0:
+        raise TypeError(&#34;split Data before running a classifier!&#34;)
+    self.model = DecisionTreeClassifier(criterion=crit, max_depth=depth, random_state=0)
+    self.model = self.model.fit(self.X_train, self.y_train)
+    self.y_pred = self.model.predict(self.X_test)
+    self.accuracy = metrics.accuracy_score(self.y_test, self.y_pred)</code></pre>
+</details>
+</dd>
+<dt id="Machine-Learning-COVID19andFLUE.src.model.SupervisedModel.decisionTreeOptimizedDepth"><code class="name flex">
+<span>def <span class="ident">decisionTreeOptimizedDepth</span></span>(<span>self, plotVisualisation=False)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>The decisionTreeOptimizedDepth public method is the wrapper of a Decision tree Classifier implemented by SciKitLearn.
+A GridSearchCV for getting the best hyper parameters for the decision tree is also running.</p>
+<p>The method instantiate the tree; fit and predict the tree; and store the accuracy score in the class.
+The method could also show the impact of using max_depth as hyper parameters on the training. (uncomment the
+appropriate line for getting access to the plot).</p>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>plotVisualisation</code></strong> :&ensp;<code>Boolean DEFAULT=False</code></dt>
+<dd>If true, a plot of the mean test score regarding the max depth value tested will be plotted.</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<p>(void)</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def decisionTreeOptimizedDepth(self, plotVisualisation=False):
+    &#34;&#34;&#34;
+    The decisionTreeOptimizedDepth public method is the wrapper of a Decision tree Classifier implemented by SciKitLearn.
+    A GridSearchCV for getting the best hyper parameters for the decision tree is also running.
+
+    The method instantiate the tree; fit and predict the tree; and store the accuracy score in the class.
+    The method could also show the impact of using max_depth as hyper parameters on the training. (uncomment the
+    appropriate line for getting access to the plot).
+
+    Parameters
+    ----------
+    plotVisualisation : Boolean DEFAULT=False
+        If true, a plot of the mean test score regarding the max depth value tested will be plotted.
+
+    Returns
+    -------
+    (void)
+    &#34;&#34;&#34;
+    if self.X_train.size == 0 or self.y_train.size == 0:
+        raise TypeError(&#34;split Data before running a classifier!&#34;)
+
+    param_dist = {
+        &#34;max_depth&#34;: range(3, 10),
+        &#34;criterion&#34;: [&#34;entropy&#34;, &#34;gini&#34;],
+        #  &#34;min_samples_split&#34;: [2, 5, 10, 15, 20], #Do not produce relevant results.
+        #  &#34;min_samples_leaf&#34;: [1, 3, 5, 7, 10], #Do not produce relevant results.
+        #  &#34;max_leaf_nodes&#34;: [None, 3, 5, 7, 10, 15, 20], #Do not produce relevant results.
+    }
+
+    classifierBench = GridSearchCV(DecisionTreeClassifier(), param_dist, cv=10, n_jobs=-1, return_train_score=True)
+    print(self.X_train)
+    classifierBench.fit(X=self.X_train, y=self.y_train)
+
+    # Visualisation of the K-FOLD cross validation
+    if plotVisualisation:
+        for i in [&#39;mean_test_score&#39;, &#39;std_test_score&#39;, &#39;param_max_depth&#39;]:
+            print(i, &#34; : &#34;, classifierBench.cv_results_[i])
+
+        for ind, i in enumerate(classifierBench.cv_results_[&#39;param_max_depth&#39;]):
+            xGraph = classifierBench.cv_results_[&#39;param_max_depth&#39;][ind]
+            yGraph = classifierBench.cv_results_[&#39;mean_test_score&#39;][ind]
+            plt.scatter(xGraph, yGraph, label=&#39;Depth: &#39; + str(classifierBench.cv_results_[&#39;param_max_depth&#39;][ind]))
+
+        plt.legend()
+        plt.xlabel(&#39;Param Max Depth&#39;)
+        plt.ylabel(&#39;Mean (Test) score&#39;)
+        plt.show()
+
+    print(&#34;Tuned Decision Tree Parameters: {}&#34;.format(classifierBench.best_params_))
+
+    self.model = DecisionTreeClassifier(criterion=classifierBench.best_params_[&#39;criterion&#39;],
+                                        max_depth=classifierBench.best_params_[&#39;max_depth&#39;],
+                                        # min_samples_split=classifierBench.best_params_[&#39;min_samples_split&#39;], #Do not produce relevant results.
+                                        # min_samples_leaf=classifierBench.best_params_[&#39;min_samples_leaf&#39;], #Do not produce relevant results.
+                                        # max_leaf_nodes=classifierBench.best_params_[&#39;max_leaf_nodes&#39;], #Do not produce relevant results.
+                                        )
+    self.model = self.model.fit(self.X_train, self.y_train)
+    self.y_pred = self.model.predict(self.X_test)
+    self.accuracy = metrics.accuracy_score(self.y_test, self.y_pred)</code></pre>
+</details>
+</dd>
+<dt id="Machine-Learning-COVID19andFLUE.src.model.SupervisedModel.decisionTreeToPic"><code class="name flex">
+<span>def <span class="ident">decisionTreeToPic</span></span>(<span>self, featureColumns=array([], dtype=float64))</span>
+</code></dt>
+<dd>
+<div class="desc"><p>The decisionTreeToPic public method save as image the decision tree model stored in the class.
+WARNING: Do not work with other classifier.
+<a href="https://scikit-learn.org/stable/modules/generated/sklearn.tree.export_graphviz.html">export_graphviz from scikitlearn is used</a></p>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>featureColumns</code></strong> :&ensp;<code>numpy.ndArrray&lt;string&gt;</code></dt>
+<dd>&nbsp;</dd>
+</dl>
+<p>A list of string that contains the column names of the input data stored in the class.</p>
+<h2 id="returns">Returns</h2>
+<p>(void)</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def decisionTreeToPic(self, featureColumns=np.array([])):
+    &#34;&#34;&#34;
+    The decisionTreeToPic public method save as image the decision tree model stored in the class.
+    WARNING: Do not work with other classifier.
+    [export_graphviz from scikitlearn is used](https://scikit-learn.org/stable/modules/generated/sklearn.tree.export_graphviz.html)
+
+    Parameters
+    ----------
+    featureColumns: numpy.ndArrray&lt;string&gt;
+       A list of string that contains the column names of the input data stored in the class.
+
+    Returns
+    -------
+    (void)
+    &#34;&#34;&#34;
+    if featureColumns.size == 0:
+        raise TypeError(&#34;Feature Columns are needed&#34;)
+
+    dot_data = StringIO()
+    export_graphviz(self.model, out_file=dot_data,
+                    filled=True, rounded=True,
+                    special_characters=True, feature_names=featureColumns, class_names=[&#39;H1N1&#39;, &#39;COVID&#39;])
+    graph = pydotplus.graph_from_dot_data(dot_data.getvalue())
+    graph.write_png(&#39;output/tree.png&#39;)
+    Image(graph.create_png())</code></pre>
+</details>
+</dd>
+<dt id="Machine-Learning-COVID19andFLUE.src.model.SupervisedModel.displayClassificationReport"><code class="name flex">
+<span>def <span class="ident">displayClassificationReport</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>The displayClassificationReport public method print the classification report of a particular classifier ran.
+<a href="https://scikit-learn.org/stable/modules/generated/sklearn.metrics.classification_report.html">classification_report from scikit learn is used</a></p>
+<h2 id="parameters">Parameters</h2>
+<p>(void)</p>
+<h2 id="returns">Returns</h2>
+<p>(void)</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def displayClassificationReport(self):
+    &#34;&#34;&#34;
+    The displayClassificationReport public method print the classification report of a particular classifier ran.
+    [classification_report from scikit learn is used](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.classification_report.html)
+
+    Parameters
+    ----------
+    (void)
+
+    Returns
+    -------
+    (void)
+    &#34;&#34;&#34;
+    if self.y_pred.size == 0:
+        raise TypeError(&#34;run a classifier before showing the report!&#34;)
+    print(classification_report(self.y_test, self.y_pred, target_names=[&#39;H1N1&#39;, &#39;COVID&#39;]))
+    print(&#34;Accuracy: %.3f&#34; % self.accuracy)</code></pre>
+</details>
+</dd>
+<dt id="Machine-Learning-COVID19andFLUE.src.model.SupervisedModel.displayConfusionMatrix"><code class="name flex">
+<span>def <span class="ident">displayConfusionMatrix</span></span>(<span>self, cliOrPlot='both')</span>
+</code></dt>
+<dd>
+<div class="desc"><p>The displayConfusionMatrix public method plot the confusion matrix of a particular classifier ran.
+<a href="https://scikit-learn.org/stable/modules/generated/sklearn.metrics.confusion_matrix.html">confusion_matrix from scikit learn is used</a></p>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>cliOrPlot</code></strong> :&ensp;<code>string&lt;"both","cli"&gt; DEFAULT:"both"</code></dt>
+<dd>The parameter allow a little bit of verbose, CLI will only display the confusion matrix in the
+command line interpreter. However, both will also plot the confusion matrix with the aid of matplotlib.</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<p>(void)</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def displayConfusionMatrix(self, cliOrPlot=&#34;both&#34;):
+    &#34;&#34;&#34;
+    The displayConfusionMatrix public method plot the confusion matrix of a particular classifier ran.
+    [confusion_matrix from scikit learn is used](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.confusion_matrix.html)
+
+    Parameters
+    ----------
+    cliOrPlot: string&lt;&#34;both&#34;,&#34;cli&#34;&gt; DEFAULT:&#34;both&#34;
+        The parameter allow a little bit of verbose, CLI will only display the confusion matrix in the
+        command line interpreter. However, both will also plot the confusion matrix with the aid of matplotlib.
+
+    Returns
+    -------
+    (void)
+    &#34;&#34;&#34;
+    mat = confusion_matrix(self.y_test, self.y_pred)
+
+    if cliOrPlot in [&#34;both&#34;, &#34;cli&#34;]:
+        print(mat)
+
+    if cliOrPlot in [&#34;both&#34;, &#34;plot&#34;]:
+        names = [&#39;H1N1&#39;, &#39;COVID&#39;]
+
+        sns.heatmap(mat, square=True, annot=True, fmt=&#39;d&#39;, cbar=False,
+                    xticklabels=names, yticklabels=names)
+        plt.xlabel(&#39;Truth&#39;)
+        plt.ylabel(&#39;Predicted&#39;)
+        plt.show()</code></pre>
+</details>
+</dd>
+<dt id="Machine-Learning-COVID19andFLUE.src.model.SupervisedModel.knearestneighnour"><code class="name flex">
+<span>def <span class="ident">knearestneighnour</span></span>(<span>self, optimized=False)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>The knearestneighnour public method is the wrapper of a K-NN classifier implemented by SciKitLearn.
+With an optimized way, which get the best n hyperparameter via the aid of a loop between 40 K-NN with K=i, which
+one produce the best score on the data given.</p>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>optimized</code></strong> :&ensp;<code>Bool DEFAULT=FALSE</code></dt>
+<dd>If True, the K-NN will run an optimized loop for having the best "n" to classify with.</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<p>(void)</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def knearestneighnour(self, optimized=False):
+    &#34;&#34;&#34;
+    The knearestneighnour public method is the wrapper of a K-NN classifier implemented by SciKitLearn.
+    With an optimized way, which get the best n hyperparameter via the aid of a loop between 40 K-NN with K=i, which
+    one produce the best score on the data given.
+
+    Parameters
+    ----------
+    optimized : Bool DEFAULT=FALSE
+        If True, the K-NN will run an optimized loop for having the best &#34;n&#34; to classify with.
+
+    Returns
+    -------
+    (void)
+    &#34;&#34;&#34;
+    if self.X_train.size == 0 or self.y_train.size == 0:
+        raise TypeError(&#34;split Data before running a classifier!&#34;)
+
+    scaler = StandardScaler()
+    scaler.fit(self.X_train)
+
+    self.X_train = scaler.transform(self.X_train)
+    self.X_test = scaler.transform(self.X_test)
+
+    # Calculating error for K values between 1 and 40
+    n_hyper_param = 5
+
+    if optimized:
+        error = []
+        for i in range(1, 40):
+            knn = KNeighborsClassifier(n_neighbors=i)
+            knn.fit(self.X_train, self.y_train)
+            pred_i = knn.predict(self.X_test)
+            error.append(np.mean(pred_i != self.y_test))
+
+        plt.figure(figsize=(12, 6))
+        plt.plot(range(1, 40), error, color=&#39;red&#39;, linestyle=&#39;dashed&#39;, marker=&#39;o&#39;,
+                 markerfacecolor=&#39;blue&#39;, markersize=10)
+        plt.title(&#39;Error Rate K Value&#39;)
+        plt.xlabel(&#39;K Value&#39;)
+        plt.ylabel(&#39;Mean Error&#39;)
+
+        plt.show()
+        n_hyper_param = input(&#34;Enter the n: &#34;)
+
+    self.model = KNeighborsClassifier(n_neighbors=int(n_hyper_param))
+    self.model = self.model.fit(self.X_train, self.y_train)
+    self.y_pred = self.model.predict(self.X_test)
+    self.accuracy = self.model.score(self.X_test, self.y_test)</code></pre>
+</details>
+</dd>
+<dt id="Machine-Learning-COVID19andFLUE.src.model.SupervisedModel.naiveBayes"><code class="name flex">
+<span>def <span class="ident">naiveBayes</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>The naiveBayes public method is the wrapper of a Naive Bayes classifier implemented by SciKitLearn.
+The method instantiate the model; fit and predict the model; and store the accuracy score in the class.</p>
+<h2 id="parameters">Parameters</h2>
+<p>(void)</p>
+<h2 id="returns">Returns</h2>
+<p>(void)</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def naiveBayes(self):
+    &#34;&#34;&#34;
+    The naiveBayes public method is the wrapper of a Naive Bayes classifier implemented by SciKitLearn.
+    The method instantiate the model; fit and predict the model; and store the accuracy score in the class.
+
+    Parameters
+    ----------
+    (void)
+
+    Returns
+    -------
+    (void)
+    &#34;&#34;&#34;
+    if self.X_train.size == 0 or self.y_train.size == 0:
+        raise TypeError(&#34;split Data before running a classifier!&#34;)
+    self.model = GaussianNB()
+
+    self.model = self.model.fit(self.X_train, self.y_train)
+    self.y_pred = self.model.predict(self.X_test)
+    self.accuracy = self.model.score(self.X_test, self.y_test)</code></pre>
+</details>
+</dd>
+<dt id="Machine-Learning-COVID19andFLUE.src.model.SupervisedModel.plotValidationModelCurves"><code class="name flex">
+<span>def <span class="ident">plotValidationModelCurves</span></span>(<span>self, estimator, title, X, y, axes=None, ylim=None, cv=None, n_jobs=None, train_sizes=array([0.1
+, 0.325, 0.55 , 0.775, 1.
+]))</span>
+</code></dt>
+<dd>
+<div class="desc"><p>The plotValidationModelCurves public method plot the validation of a model according to it's bias variance
+trade off curve (overfit, underfit, goodfit), as well as the scalability and performance of the model acording
+to the time it took for making it.
+<a href="https://scikit-learn.org/stable/auto_examples/index.html">Inspired from the doc/tutorials available in scikitlearn</a></p>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>estimator</code></strong> :&ensp;<code>scikitLearn classifier</code></dt>
+<dd>The estimator is the classifier that will be test and plotted.</dd>
+<dt><strong><code>title</code></strong> :&ensp;<code>string</code></dt>
+<dd>The title of the plot figure for a better genericity.</dd>
+<dt><strong><code>X</code></strong> :&ensp;<code>numpy.ndArray</code></dt>
+<dd>Input stored in the class.</dd>
+<dt><strong><code>y</code></strong> :&ensp;<code>numpy.ndArray</code></dt>
+<dd>Target class stored in the class.</dd>
+<dt><strong><code>axes</code></strong> :&ensp;<code>array[]</code></dt>
+<dd>Axes of where to plot the result (used for subplot).</dd>
+<dt><strong><code>cv</code></strong> :&ensp;<code>caller || int</code></dt>
+<dd>Number of cross-validation or a caller that will split the data with a method.</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<p>(void)</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def plotValidationModelCurves(self, estimator, title, X, y, axes=None, ylim=None, cv=None,
+                              n_jobs=None, train_sizes=np.linspace(.1, 1.0, 5)):
+    &#34;&#34;&#34;
+    The plotValidationModelCurves public method plot the validation of a model according to it&#39;s bias variance
+    trade off curve (overfit, underfit, goodfit), as well as the scalability and performance of the model acording
+    to the time it took for making it.
+    [Inspired from the doc/tutorials available in scikitlearn](https://scikit-learn.org/stable/auto_examples/index.html)
+
+    Parameters
+    ----------
+    estimator: scikitLearn classifier
+        The estimator is the classifier that will be test and plotted.
+    title: string
+        The title of the plot figure for a better genericity.
+    X: numpy.ndArray
+        Input stored in the class.
+    y: numpy.ndArray
+        Target class stored in the class.
+    axes: array[]
+        Axes of where to plot the result (used for subplot).
+    cv: caller || int
+        Number of cross-validation or a caller that will split the data with a method.
+
+    Returns
+    -------
+    (void)
+    &#34;&#34;&#34;
+    if axes is None:
+        _, axes = plt.subplots(1, 3, figsize=(20, 5))
+
+    axes[0].set_title(title)
+    if ylim is not None:
+        axes[0].set_ylim(*ylim)
+    axes[0].set_xlabel(&#34;Training samples&#34;)
+    axes[0].set_ylabel(&#34;Score&#34;)
+
+    train_sizes, train_scores, test_scores, fit_times, _ = \
+        learning_curve(estimator, X, y, cv=cv, n_jobs=n_jobs,
+                       train_sizes=train_sizes,
+                       return_times=True)
+    train_scores_mean = np.mean(train_scores, axis=1)
+    train_scores_std = np.std(train_scores, axis=1)
+    test_scores_mean = np.mean(test_scores, axis=1)
+    test_scores_std = np.std(test_scores, axis=1)
+    fit_times_mean = np.mean(fit_times, axis=1)
+    fit_times_std = np.std(fit_times, axis=1)
+
+    axes[0].grid()
+    axes[0].fill_between(train_sizes, train_scores_mean - train_scores_std,
+                         train_scores_mean + train_scores_std, alpha=0.1,
+                         color=&#34;r&#34;)
+    axes[0].fill_between(train_sizes, test_scores_mean - test_scores_std,
+                         test_scores_mean + test_scores_std, alpha=0.1,
+                         color=&#34;g&#34;)
+    axes[0].plot(train_sizes, train_scores_mean, &#39;o-&#39;, color=&#34;r&#34;,
+                 label=&#34;Training score&#34;)
+    axes[0].plot(train_sizes, test_scores_mean, &#39;o-&#39;, color=&#34;g&#34;,
+                 label=&#34;Cross-validation score&#34;)
+    axes[0].legend(loc=&#34;best&#34;)
+
+    axes[1].grid()
+    axes[1].plot(train_sizes, fit_times_mean, &#39;o-&#39;)
+    axes[1].fill_between(train_sizes, fit_times_mean - fit_times_std,
+                         fit_times_mean + fit_times_std, alpha=0.1)
+    axes[1].set_xlabel(&#34;Training examples&#34;)
+    axes[1].set_ylabel(&#34;fit_times&#34;)
+    axes[1].set_title(&#34;Scalability of the model&#34;)
+
+    axes[2].grid()
+    axes[2].plot(fit_times_mean, test_scores_mean, &#39;o-&#39;)
+    axes[2].fill_between(fit_times_mean, test_scores_mean - test_scores_std,
+                         test_scores_mean + test_scores_std, alpha=0.1)
+    axes[2].set_xlabel(&#34;fit_times&#34;)
+    axes[2].set_ylabel(&#34;Score&#34;)
+    axes[2].set_title(&#34;Performance of the model&#34;)
+
+    return plt</code></pre>
+</details>
+</dd>
+<dt id="Machine-Learning-COVID19andFLUE.src.model.SupervisedModel.randomForestClassifier"><code class="name flex">
+<span>def <span class="ident">randomForestClassifier</span></span>(<span>self, crit)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>The randomForestClassifier public method is the wrapper of a Random Forest classifier implemented by SciKitLearn.
+The method instantiate the trees; fit and predict the trees; and store the accuracy score in the class.</p>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>crit</code></strong> :&ensp;<code>string&lt;"entropy","gini"&gt;</code></dt>
+<dd>criterion used for validated a node of the tree (impurity, etc.).</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<p>(void)</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def randomForestClassifier(self, crit):
+    &#34;&#34;&#34;
+    The randomForestClassifier public method is the wrapper of a Random Forest classifier implemented by SciKitLearn.
+    The method instantiate the trees; fit and predict the trees; and store the accuracy score in the class.
+
+    Parameters
+    ----------
+    crit : string&lt;&#34;entropy&#34;,&#34;gini&#34;&gt;
+        criterion used for validated a node of the tree (impurity, etc.).
+
+    Returns
+    -------
+    (void)
+    &#34;&#34;&#34;
+    if self.X_train.size == 0 or self.y_train.size == 0:
+        raise TypeError(&#34;split Data before running a classifier!&#34;)
+    self.model = RandomForestClassifier(n_estimators=100, criterion=crit, random_state=0)
+
+    self.model = self.model.fit(self.X_train, self.y_train)
+    self.y_pred = self.model.predict(self.X_test)
+    self.accuracy = metrics.accuracy_score(self.y_test, self.y_pred)</code></pre>
+</details>
+</dd>
+<dt id="Machine-Learning-COVID19andFLUE.src.model.SupervisedModel.showValidationCurveMaxDepth"><code class="name flex">
+<span>def <span class="ident">showValidationCurveMaxDepth</span></span>(<span>self, classifierBench, param_dist)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>The showValidationCurveMaxDepth public method plot the impact of the hyperparameter max_depth during the training
+for a decision tree classifier with gridSearchCV (cross validation) results.</p>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>classifierBench</code></strong> :&ensp;<code>GridSearchCV()</code></dt>
+<dd>CrossValidated "gridSearch" from scikitLearn results.</dd>
+<dt><strong><code>param_dist</code></strong> :&ensp;<code>Object</code></dt>
+<dd>Hyperparameters used for the GridSearchCV.</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<p>(void)</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def showValidationCurveMaxDepth(self, classifierBench, param_dist):
+    &#34;&#34;&#34;
+    The showValidationCurveMaxDepth public method plot the impact of the hyperparameter max_depth during the training
+    for a decision tree classifier with gridSearchCV (cross validation) results.
+
+    Parameters
+    ----------
+    classifierBench : GridSearchCV()
+        CrossValidated &#34;gridSearch&#34; from scikitLearn results.
+    param_dist : Object
+        Hyperparameters used for the GridSearchCV.
+
+    Returns
+    -------
+    (void)
+    &#34;&#34;&#34;
+    train_scores_mean = classifierBench.cv_results_[&#39;mean_train_score&#39;]
+    train_scores_std = classifierBench.cv_results_[&#39;std_train_score&#39;]
+    test_scores_mean = classifierBench.cv_results_[&#39;mean_test_score&#39;]
+    test_scores_std = classifierBench.cv_results_[&#39;std_test_score&#39;]
+
+    datas = param_dist[&#39;max_depth&#39;]
+
+    plt.figure()
+    plt.title(&#39;Model&#39;)
+    plt.xlabel(&#39;max_depth&#39;)
+    plt.ylabel(&#39;Score&#39;)
+
+    plt.semilogx(datas, train_scores_mean, label=&#39;Mean Train score&#39;,
+                 color=&#39;navy&#39;)
+    plt.gca().fill_between(datas,
+                           train_scores_mean - train_scores_std,
+                           train_scores_mean + train_scores_std,
+                           alpha=0.2,
+                           color=&#39;navy&#39;)
+    plt.semilogx(datas, test_scores_mean,
+                 label=&#39;Mean Test score&#39;, color=&#39;darkorange&#39;)
+
+    plt.gca().fill_between(datas,
+                           test_scores_mean - test_scores_std,
+                           test_scores_mean + test_scores_std,
+                           alpha=0.2,
+                           color=&#39;darkorange&#39;)
+
+    plt.legend(loc=&#39;best&#39;)
+    plt.show()</code></pre>
+</details>
+</dd>
+<dt id="Machine-Learning-COVID19andFLUE.src.model.SupervisedModel.simpleAndOptimizedDecisionTreeBench"><code class="name flex">
+<span>def <span class="ident">simpleAndOptimizedDecisionTreeBench</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>The simpleAndOptimizedDecisionTreeBench public method is the benchmarking of a simple DT and Optimized DT.</p>
+<p>The process is as follow:
+- Create the cross validation caller (ShugffleSplit from scikit learn for going over n iteration with test_size%
+randomly selection as a validation set).
+- Create the estimator.
+- Plot the validation model curves
+- Doing the above step both for the Simple DT and Optimized DT and observe the results on a subplot.</p>
+<h2 id="parameters">Parameters</h2>
+<p>(void)</p>
+<h2 id="returns">Returns</h2>
+<p>(void)</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def simpleAndOptimizedDecisionTreeBench(self):
+    &#34;&#34;&#34;
+    The simpleAndOptimizedDecisionTreeBench public method is the benchmarking of a simple DT and Optimized DT.
+
+    The process is as follow:
+    - Create the cross validation caller (ShugffleSplit from scikit learn for going over n iteration with test_size%
+    randomly selection as a validation set).
+    - Create the estimator.
+    - Plot the validation model curves
+    - Doing the above step both for the Simple DT and Optimized DT and observe the results on a subplot.
+
+    Parameters
+    ----------
+    (void)
+
+    Returns
+    -------
+    (void)
+    &#34;&#34;&#34;
+    fig, axes = plt.subplots(3, 2, figsize=(10, 15))
+    fig.suptitle(&#39;Simple DT and Optimized DT Model - Model Validation&#39;)
+
+    X = self.__input
+    y = self.__target
+
+    title = &#34;Learning Curves (Decision Tree)&#34;
+    cv = ShuffleSplit(n_splits=100, test_size=0.3, random_state=0)
+
+    estimator = DecisionTreeClassifier(criterion=&#34;entropy&#34;, max_depth=2)
+    self.plotValidationModelCurves(estimator, title, X, y, axes=axes[:, 0], ylim=(0.7, 1.01),
+                                   cv=cv, n_jobs=4)
+
+    title = &#34;Learning Curves (Decision tree with hyperparameters tunning&#34;
+
+    cv = ShuffleSplit(n_splits=100, test_size=0.3, random_state=0)
+
+    param_dist = {
+        &#34;max_depth&#34;: range(3, 10),
+        &#34;criterion&#34;: [&#34;entropy&#34;, &#34;gini&#34;],
+        # &#34;min_samples_split&#34;: [2, 5, 10, 15, 20],
+        # &#34;min_samples_leaf&#34;: [1, 3, 5, 7, 10],
+        # &#34;max_leaf_nodes&#34;: [None, 3, 5, 7, 10, 15, 20],
+    }
+
+    estimator = GridSearchCV(DecisionTreeClassifier(), param_dist, cv=10, n_jobs=-1, return_train_score=True)
+    # gives [{max_depth: 9}, {criterion: &#39;gini&#39;}]. Use the following estimator for computing faster.
+    # estimator = DecisionTreeClassifier(criterion=&#39;gini&#39;,
+    #                                   max_depth=9,
+    #                                   )
+    self.plotValidationModelCurves(estimator, title, X, y, axes=axes[:, 1], ylim=(0.7, 1.01),
+                                   cv=cv, n_jobs=4)
+
+    plt.show()</code></pre>
+</details>
+</dd>
+<dt id="Machine-Learning-COVID19andFLUE.src.model.SupervisedModel.splitData"><code class="name flex">
+<span>def <span class="ident">splitData</span></span>(<span>self, testSize)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>The splitData public method give the possibility to split the data and stored the output into the class.
+<a href="https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.train_test_split.html">train_test_split from scikit learn is used</a></p>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>testSize</code></strong> :&ensp;<code>int</code></dt>
+<dd>Example: testsize=0.3 &ndash;&gt; 70% training and 30% test.</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<p>(void)</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def splitData(self, testSize):  # testsize=0.3 --&gt; 70% training and 30% test
+    &#34;&#34;&#34;
+    The splitData public method give the possibility to split the data and stored the output into the class.
+    [train_test_split from scikit learn is used](https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.train_test_split.html)
+
+    Parameters
+    ----------
+    testSize : int
+        Example: testsize=0.3 --&gt; 70% training and 30% test.
+
+    Returns
+    -------
+    (void)
+    &#34;&#34;&#34;
+    self.X_train, self.X_test, self.y_train, self.y_test = train_test_split(
+        self.__input,
+        self.__target,
+        test_size=testSize,
+        random_state=0
+    )</code></pre>
+</details>
+</dd>
+<dt id="Machine-Learning-COVID19andFLUE.src.model.SupervisedModel.tree_to_code"><code class="name flex">
+<span>def <span class="ident">tree_to_code</span></span>(<span>self, tree, feature_names, pseudoCode=False)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Outputs a decision tree model as a Python function</p>
+<h2 id="parameters">Parameters:</h2>
+<p>tree: decision tree model
+The decision tree to represent as a function
+feature_names: list
+The feature names of the dataset used for building the decision tree</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def tree_to_code(self, tree, feature_names, pseudoCode=False):
+    &#34;&#34;&#34;
+    Outputs a decision tree model as a Python function
+
+    Parameters:
+    -----------
+    tree: decision tree model
+        The decision tree to represent as a function
+    feature_names: list
+        The feature names of the dataset used for building the decision tree
+    &#34;&#34;&#34;
+    if pseudoCode:
+        tree_rules = export_text(self.model, feature_names=list(feature_names))
+        print(tree_rules)
+        return
+
+    tree_ = tree.tree_
+    feature_name = [
+        feature_names[i] if i != _tree.TREE_UNDEFINED else &#34;undefined!&#34;
+        for i in tree_.feature
+    ]
+    print (&#34;def tree({}):&#34;.format(&#34;, &#34;.join(feature_names)))
+
+    def recurse(node, depth):
+        indent = &#34;  &#34; * depth
+        if tree_.feature[node] != _tree.TREE_UNDEFINED:
+            name = feature_name[node]
+            threshold = tree_.threshold[node]
+            print (&#34;{}if {} &lt;= {}:&#34;.format(indent, name, threshold))
+            recurse(tree_.children_left[node], depth + 1)
+            print (&#34;{}else:  # if {} &gt; {}&#34;.format(indent, name, threshold))
+            recurse(tree_.children_right[node], depth + 1)
+        else:
+            print (&#34;{}return {}&#34;.format(indent, tree_.value[node]))
+
+    recurse(0, 1)</code></pre>
+</details>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+</article>
+<nav id="sidebar">
+<h1>Index</h1>
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="Machine-Learning-COVID19andFLUE.src" href="index.html">Machine-Learning-COVID19andFLUE.src</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-classes">Classes</a></h3>
+<ul>
+<li>
+<h4><code><a title="Machine-Learning-COVID19andFLUE.src.model.SupervisedModel" href="#Machine-Learning-COVID19andFLUE.src.model.SupervisedModel">SupervisedModel</a></code></h4>
+<ul class="">
+<li><code><a title="Machine-Learning-COVID19andFLUE.src.model.SupervisedModel.SimpleDTandOptimizedDTVarianceDecomp" href="#Machine-Learning-COVID19andFLUE.src.model.SupervisedModel.SimpleDTandOptimizedDTVarianceDecomp">SimpleDTandOptimizedDTVarianceDecomp</a></code></li>
+<li><code><a title="Machine-Learning-COVID19andFLUE.src.model.SupervisedModel.benchAlgorithms" href="#Machine-Learning-COVID19andFLUE.src.model.SupervisedModel.benchAlgorithms">benchAlgorithms</a></code></li>
+<li><code><a title="Machine-Learning-COVID19andFLUE.src.model.SupervisedModel.biasVarianceTradeOff" href="#Machine-Learning-COVID19andFLUE.src.model.SupervisedModel.biasVarianceTradeOff">biasVarianceTradeOff</a></code></li>
+<li><code><a title="Machine-Learning-COVID19andFLUE.src.model.SupervisedModel.decisionTree" href="#Machine-Learning-COVID19andFLUE.src.model.SupervisedModel.decisionTree">decisionTree</a></code></li>
+<li><code><a title="Machine-Learning-COVID19andFLUE.src.model.SupervisedModel.decisionTreeOptimizedDepth" href="#Machine-Learning-COVID19andFLUE.src.model.SupervisedModel.decisionTreeOptimizedDepth">decisionTreeOptimizedDepth</a></code></li>
+<li><code><a title="Machine-Learning-COVID19andFLUE.src.model.SupervisedModel.decisionTreeToPic" href="#Machine-Learning-COVID19andFLUE.src.model.SupervisedModel.decisionTreeToPic">decisionTreeToPic</a></code></li>
+<li><code><a title="Machine-Learning-COVID19andFLUE.src.model.SupervisedModel.displayClassificationReport" href="#Machine-Learning-COVID19andFLUE.src.model.SupervisedModel.displayClassificationReport">displayClassificationReport</a></code></li>
+<li><code><a title="Machine-Learning-COVID19andFLUE.src.model.SupervisedModel.displayConfusionMatrix" href="#Machine-Learning-COVID19andFLUE.src.model.SupervisedModel.displayConfusionMatrix">displayConfusionMatrix</a></code></li>
+<li><code><a title="Machine-Learning-COVID19andFLUE.src.model.SupervisedModel.knearestneighnour" href="#Machine-Learning-COVID19andFLUE.src.model.SupervisedModel.knearestneighnour">knearestneighnour</a></code></li>
+<li><code><a title="Machine-Learning-COVID19andFLUE.src.model.SupervisedModel.naiveBayes" href="#Machine-Learning-COVID19andFLUE.src.model.SupervisedModel.naiveBayes">naiveBayes</a></code></li>
+<li><code><a title="Machine-Learning-COVID19andFLUE.src.model.SupervisedModel.plotValidationModelCurves" href="#Machine-Learning-COVID19andFLUE.src.model.SupervisedModel.plotValidationModelCurves">plotValidationModelCurves</a></code></li>
+<li><code><a title="Machine-Learning-COVID19andFLUE.src.model.SupervisedModel.randomForestClassifier" href="#Machine-Learning-COVID19andFLUE.src.model.SupervisedModel.randomForestClassifier">randomForestClassifier</a></code></li>
+<li><code><a title="Machine-Learning-COVID19andFLUE.src.model.SupervisedModel.showValidationCurveMaxDepth" href="#Machine-Learning-COVID19andFLUE.src.model.SupervisedModel.showValidationCurveMaxDepth">showValidationCurveMaxDepth</a></code></li>
+<li><code><a title="Machine-Learning-COVID19andFLUE.src.model.SupervisedModel.simpleAndOptimizedDecisionTreeBench" href="#Machine-Learning-COVID19andFLUE.src.model.SupervisedModel.simpleAndOptimizedDecisionTreeBench">simpleAndOptimizedDecisionTreeBench</a></code></li>
+<li><code><a title="Machine-Learning-COVID19andFLUE.src.model.SupervisedModel.splitData" href="#Machine-Learning-COVID19andFLUE.src.model.SupervisedModel.splitData">splitData</a></code></li>
+<li><code><a title="Machine-Learning-COVID19andFLUE.src.model.SupervisedModel.tree_to_code" href="#Machine-Learning-COVID19andFLUE.src.model.SupervisedModel.tree_to_code">tree_to_code</a></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc"><cite>pdoc</cite> 0.9.2</a>.</p>
+</footer>
+</body>
+</html>
