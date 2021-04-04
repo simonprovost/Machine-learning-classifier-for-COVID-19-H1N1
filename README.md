@@ -52,10 +52,9 @@ significant number of missing values or categorical features. For the well-proce
 shown below (Fig: 1), the Label encoding and Hand-impute methods were used.
 </p>
 
-<figure>
-  <img src="https://raw.githubusercontent.com/simonprovost/Machine-Learning-COVID19andFLUE/main/assets/DataPreprocessing.png?token=AHZ3AMCM7JXA7EL7TNOI623AND6SI" alt="Pre-processing" style="width:50%">
-  <figcaption>Fig: 1 - Pre-processing of the data.</figcaption>
-</figure>
+<img src="./assets/DataPreprocessing.png" alt="Pre-processing" width="50%" height="50%">
+Fig: 1 - Pre-processing of the data.
+
 
 ## Simple Decision-tree
 
@@ -67,15 +66,11 @@ outcome metrics (Conf. Matrix, Classifier reports, and so on), are shown below (
 The representation of the output tree is shown below (Fig: 3).
 </p>
 
-<figure>
-  <img src="https://raw.githubusercontent.com/simonprovost/Machine-Learning-COVID19andFLUE/main/assets/SimpleDecisiontree-information.png?token=AHZ3AMGHUJGVTOAEEAMV6ETAND722" alt="Simple decision tree hyper parameters and metrics outcome" style="width:50%">
-  <figcaption>Fig: 2 - Simple decision tree outcomes.</figcaption>
-</figure>
+<img src="./assets/SimpleDecisiontree-information.png" alt="Simple decision tree hyper parameters and metrics outcome" width="50%" height="50%">
+Fig: 2 - Simple decision tree outcomes
 
-<figure>
-  <img src="https://raw.githubusercontent.com/simonprovost/Machine-Learning-COVID19andFLUE/main/assets/SimpleDecisiontree-Representation.png?token=AHZ3AMEF222EDNYJXCZZ5ADAND7YK" alt="Simple decision tree representation" style="width:50%">
-  <figcaption>Fig: 3 - Simple decision tree representation.</figcaption>
-</figure>
+<img src="./assets/SimpleDecisiontree-Representation.png" alt="Simple decision tree representation" width="50%" height="50%">
+Fig: 3 - Simple decision tree representation.
 
 ## Optmised Decision-tree
 
@@ -92,15 +87,11 @@ Finally, the sensitive features observed are shown below (Fig: 5).
 The tree representation is available [here](https://github.com/simonprovost/Machine-Learning-COVID19andFLUE/blob/main/assets/Optimised-decision-tree.png).
 
 
-<figure>
-  <img src="https://raw.githubusercontent.com/simonprovost/Machine-Learning-COVID19andFLUE/main/assets/OptimizedDecisionTree.png?token=AHZ3AMGTWJBL3YGEQ6SB5S3ANEBMO" alt="Optimised decision tree with hyper parameters tunning as well as metrics outcome" style="width:50%">
-  <figcaption>Fig: 4 - Optimised decision tree outcomes with hyper parameters tuning using Cross-validation.</figcaption>
-</figure>
+<img src="./assets/OptimizedDecisionTree.png" alt="Optimised decision tree with hyper parameters tunning as well as metrics outcome" width="50%" height="50%">
+Fig: 4 - Optimised decision tree outcomes with hyper parameters tuning using Cross-validation.
 
-<figure>
-  <img src="https://raw.githubusercontent.com/simonprovost/Machine-Learning-COVID19andFLUE/main/assets/ODTSenstivefeatures.png?token=AHZ3AMEUDJ4RCBIR25XDFZDANEBRU" alt="Optimised decision tree sensitive features" style="width:50%">
-  <figcaption>Fig: 5 - Optimised decision tree sensitive features.</figcaption>
-</figure>
+<img src="./assets/ODTSenstivefeatures.png" alt="Optimised decision tree sensitive features" width="50%" height="50%">
+Fig: 5 - Optimised decision tree sensitive features.
 
 ## Benchmarking Learning curves Simple/Optimised Decision-tree / Bias-variance trade-off 🧪
 
@@ -116,15 +107,11 @@ optimised DT with cross-validation. (Fig: 6). On the other hand, the bias and va
 a huge gap after having performing cross-validation for hyper parameters tuning. (Fig: 7).
 </p>
 
-<figure>
-  <img src="https://raw.githubusercontent.com/simonprovost/Machine-Learning-COVID19andFLUE/main/assets/Benchmarking-Learning-curves.png?token=AHZ3AMBOGRRJ5KA5D67XORDANEDPE" alt="learning curves Simple/Optimised DT" style="width:50%">
-  <figcaption>Fig: 6 - Simple/Optimised DT learning curves</figcaption>
-</figure>
+<img src="./assets/Benchmarking-Learning-curves.png" alt="Learning curves Simple/Optimised DT" width="50%" height="50%">
+Fig: 6 - Simple/Optimised DT learning curves
 
-<figure>
-  <img src="https://raw.githubusercontent.com/simonprovost/Machine-Learning-COVID19andFLUE/main/assets/Impactbiasvariancefromadecisontreetoanoptimisedone.png?token=AHZ3AMBOOZLSGN3QM2CX2U3ANED3G" alt="Impact bias variance trade off" style="width:50%">
-  <figcaption>Fig: 7 - Impact bias variance trade off from the Simple to the Optimised decision tree</figcaption>
-</figure>
+<img src="./assets/Impactbiasvariancefromadecisontreetoanoptimisedone.png" alt="Impact bias variance trade off" width="50%" height="50%">
+Fig: 7 - Impact bias variance trade off from the Simple to the Optimised decision tree
 
 ## Classifiers comparison 📊
 
@@ -136,11 +123,8 @@ interpretable than a simple decision tree with hyper parameters tuning (using cr
 I would use the optimised decision tree because of its interpretability and high accuracy. Results are shown below (Fig: 8).
 </p>
 
-<figure>
-  <img src="https://raw.githubusercontent.com/simonprovost/Machine-Learning-COVID19andFLUE/main/assets/algorithms-benchmarking.png?token=AHZ3AMGDWN6LW2YHZNUNR33ANEEA6" alt="Classifiers comparision" style="width:50%">
-  <figcaption>Fig: 8 - Simple/Optimised DT learning curves</figcaption>
-</figure>
-
+<img src="./assets/algorithms-benchmarking.png" alt="Classifiers comparision" width="50%" height="50%">
+Fig: 8 - Simple/Optimised DT learning curves
 
 ## Limitation and further study 🚨
 
