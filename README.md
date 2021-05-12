@@ -1,5 +1,6 @@
 # Machine Learning Classifier for COVID-19 & FLU Data
 
+
 <p style='text-align: justify;'>
 The goal of this project is to demonstrate an implementation of an optimised decision tree capable of classifying the
 data fed to it with ~90% accuracy using Python and the Scikit Learn as Machine Learning Library. More information can
@@ -10,6 +11,8 @@ be found in the sections that follow.
 
 [Scikit Learn](http://scikit-learn.org)
 
+# University of Kent coursework
+[Marek Grzes](https://www.cs.kent.ac.uk/people/staff/mg483/) graded my work with a: 90/100 % --> top 5% best of the class.
 
 ## How to run the project 🏃🏻‍♂️
 
